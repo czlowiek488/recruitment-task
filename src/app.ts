@@ -46,6 +46,7 @@ import type { AppManager } from './app.manager'
 import { createDbManager } from './shared/db/db.manager'
 import { healthCheckGetRoute } from './route/internal/health-check.route.get'
 import { internalHealthCheckHandler } from './handler/internal/health-check.handler'
+import { calculateMarketDataRoute } from './route/market-data/calculate.post'
 
 export const dbManager = createDbManager({
   REDIS: redisDb,
@@ -102,6 +103,7 @@ export type Dependencies = {
   internalTest1Route: ReturnType<typeof internalTest1Route>
   internalTest2Route: ReturnType<typeof internalTest2Route>
   healthCheckGetRoute: ReturnType<typeof healthCheckGetRoute>
+  calculateMarketDataRoute: ReturnType<typeof calculateMarketDataRoute>
 
   // handler list
   internalTest1Handler: ReturnType<typeof internalTest1Handler>
@@ -118,6 +120,7 @@ export const routeList = {
   internalTest1Route: asProxied(internalTest1Route, []),
   internalTest2Route: asProxied(internalTest2Route, []),
   healthCheckGetRoute: asProxied(healthCheckGetRoute, []),
+  calculateMarketDataRoute: asProxied(calculateMarketDataRoute, []),
 }
 
 export const loadAppContainer = <TDependencies extends Dependencies>(
