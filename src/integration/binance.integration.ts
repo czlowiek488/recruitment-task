@@ -9,7 +9,16 @@ export type BinanceIntegration = {
     startTime: number
     endTime: number
   }) => FunctionResult<
-    Promise<{ openPrice: number; closePrice: number }>,
+    Promise<{
+      changeList: {
+        openPrice: number
+        closePrice: number
+        volume: number
+        openTime: number
+        closeTime: number
+        numberOfTrades: number
+      }[]
+    }>,
     'INTEGRATION_CONNECTION_ERROR' | 'INTEGRATION_BINANCE_NO_KLINE_DATA_ERROR'
   >
 }
@@ -47,8 +56,14 @@ export const binanceIntegration = (
     }
     logger.debug('here', result.body[0])
     return new Result(true, 'integration request succeed', {
-      openPrice: Number(result.body[0][1]),
-      closePrice: Number(result.body[0][2]),
+      changeList: result.body.map((entry) => ({
+        openPrice: Number(entry[1]),
+        closePrice: Number(entry[2]),
+        volume: Number(entry[5]),
+        openTime: entry[0],
+        closeTime: entry[6],
+        numberOfTrades: Number(entry[9]),
+      })),
     })
   },
 })

@@ -6,7 +6,16 @@ import { RouteName } from '../../shared/enum/route-name.enum'
 
 export const calculateMarketDataRoute = createRoute(
   zod.object({
-    priceDifferenceChange: zod.number(),
+    changeList: zod.array(
+      zod.object({
+        openPrice: zod.number(),
+        closePrice: zod.number(),
+        volume: zod.number(),
+        openTime: zod.number(),
+        closeTime: zod.number(),
+        numberOfTrades: zod.number(),
+      }),
+    ),
   }),
   zod.object({}),
 )(
@@ -38,7 +47,7 @@ export const calculateMarketDataRoute = createRoute(
         return sendResponse(
           StatusCodes.OK,
           new Result(true, 'route succeed', {
-            priceDifferenceChange: result.data.priceDifferenceChange,
+            changeList: result.data.changeList,
           }),
           {},
         )

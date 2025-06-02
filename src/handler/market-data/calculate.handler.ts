@@ -4,7 +4,16 @@ import { Result } from '../../shared/lib/result.lib'
 
 export const marketDataCalculateHandler = createHandler<
   { symbol: string; timeStart: number; timeEnd: number },
-  { priceDifferenceChange: number },
+  {
+    changeList: {
+      openPrice: number
+      closePrice: number
+      volume: number
+      openTime: number
+      closeTime: number
+      numberOfTrades: number
+    }[]
+  },
   'HANDLER_NO_DATA_ERROR' | 'HANDLER_EXECUTION_ERROR'
 >(HandlerName.MARKET_DATA_CALCULATE, (dependencies) => async (payload) => {
   const getHistoricalDataResult =
@@ -36,8 +45,6 @@ export const marketDataCalculateHandler = createHandler<
   }
 
   return new Result(true, `handler market data calculate succeed`, {
-    priceDifferenceChange:
-      getHistoricalDataResult.data.closePrice -
-      getHistoricalDataResult.data.openPrice,
+    changeList: getHistoricalDataResult.data.changeList,
   })
 })

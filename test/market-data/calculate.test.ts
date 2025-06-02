@@ -16,7 +16,16 @@ it('market data - get historical data api', async () => {
   expect(testResult.data).toStrictEqual({
     responseBody: {
       data: {
-        priceDifferenceChange: expect.any(Number),
+        changeList: expect.arrayContaining([
+          {
+            closePrice: expect.any(Number),
+            closeTime: expect.any(Number),
+            numberOfTrades: expect.any(Number),
+            openPrice: expect.any(Number),
+            openTime: expect.any(Number),
+            volume: expect.any(Number),
+          },
+        ]),
       },
       statusCode: StatusCodes.OK,
       statusText: ReasonPhrases.OK,
@@ -35,7 +44,16 @@ it('market data - get historical data mocks - with data', async () => {
   expect(result.calculateMarketDataRouteTestResult.data).toStrictEqual({
     responseBody: {
       data: {
-        priceDifferenceChange: expect.any(Number),
+        changeList: [
+          {
+            closePrice: expect.any(Number),
+            closeTime: expect.any(Number),
+            numberOfTrades: expect.any(Number),
+            openPrice: expect.any(Number),
+            openTime: expect.any(Number),
+            volume: expect.any(Number),
+          },
+        ],
       },
       statusCode: StatusCodes.OK,
       statusText: ReasonPhrases.OK,
