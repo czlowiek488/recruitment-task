@@ -1,0 +1,26 @@
+<html>
+    <style>
+        .mermaid {
+            background-color: #f4f4f4 !important;
+            width: 80vw !important;
+        }
+    </style>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: "neutral" }); 
+        mermaid.registerIconPacks(
+            [
+                { name: "eos-icons", url: "https://unpkg.com/@iconify-json/eos-icons@1.2.1/icons.json" },
+                { name: "logos", url: "https://unpkg.com/@iconify-json/logos@1/icons.json" },
+            ].map(iconSet => ({ 
+                name: iconSet.name, 
+                loader: () => fetch(iconSet.url).then(res => res.json()) 
+            }))
+        );
+    </script>
+    <head>
+        {{{redocHead}}}
+    <body>
+        {{{redocHTML}}}
+    </body>
+</html>

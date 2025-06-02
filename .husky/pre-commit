@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+if ! git diff --quiet; then
+  echo "❌ Unstaged changes found!"
+  git diff --name-only
+  exit 1
+else
+  echo "✅ No unstaged changes."
+fi
+./node_modules/.bin/commitlint --config commitlint.config.ts --edit $1
+DOCKER_COMPOSE_RUN_ARGS="--no-TTY" npm run eslint
+DOCKER_COMPOSE_RUN_ARGS="--no-TTY" npm run types

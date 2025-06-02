@@ -1,0 +1,67 @@
+version: '3.5'
+
+networks:
+  app-network:
+
+x-common-app: &common-app
+  build:
+    context: .
+    dockerfile: Dockerfile
+  user: node
+  volumes:
+    - .:/app
+    - ./node_modules:/app/node_modules
+    - ./temp:/app/temp
+  networks:
+    - app-network
+  depends_on:
+    postgres:
+      condition: service_healthy
+    mysql:
+      condition: service_healthy
+    redis:
+      condition: service_healthy
+    mongodb:
+      condition: service_healthy
+    dynamodb:
+      condition: service_healthy
+  environment:
+    - OPEN_API_PATH=${OPEN_API_PATH}
+    - EMPTYING_DATABASE_ALLOWED=${EMPTYING_DATABASE_ALLOWED}
+    - APP_ENV=${APP_ENV}
+    - APP_PORT=${APP_PORT}
+    - APP_HOST=${APP_HOST}
+    - APP_LOG_LEVEL=${APP_LOG_LEVEL}
+    - DB_MONGO_HOST=${DB_MONGO_HOST}
+    - DB_MONGO_NAME=${DB_MONGO_NAME}
+    - DB_MONGO_USERNAME=${DB_MONGO_USERNAME}
+    - DB_MONGO_PASSWORD=${DB_MONGO_PASSWORD}
+    - DB_MONGO_ROOT_USERNAME=${DB_MONGO_ROOT_USERNAME}
+    - DB_MONGO_ROOT_PASSWORD=${DB_MONGO_ROOT_PASSWORD}
+    - DB_MONGO_PORT_EXPOSED=${DB_MONGO_PORT_EXPOSED}
+    - DB_POSTGRES_NAME=${DB_POSTGRES_NAME}
+    - DB_POSTGRES_PORT_EXPOSED=${DB_POSTGRES_PORT_EXPOSED}
+    - DB_POSTGRES_HOST=${DB_POSTGRES_HOST}
+    - DB_POSTGRES_DB=${DB_POSTGRES_DB}
+    - DB_POSTGRES_USER=${DB_POSTGRES_USER}
+    - DB_POSTGRES_PASSWORD=${DB_POSTGRES_PASSWORD}
+    - DB_MYSQL_HOST=${DB_MYSQL_HOST}
+    - DB_MYSQL_PORT_EXPOSED=${DB_MYSQL_PORT_EXPOSED}
+    - DB_MYSQL_ROOT_PASSWORD=${DB_MYSQL_ROOT_PASSWORD}
+    - DB_MYSQL_DATABASE=${DB_MYSQL_DATABASE}
+    - DB_MYSQL_USER=${DB_MYSQL_USER}
+    - DB_MYSQL_PASSWORD=${DB_MYSQL_PASSWORD}
+    - DB_REDIS_PORT_EXPOSED=${DB_REDIS_PORT_EXPOSED}
+    - DB_REDIS_PASSWORD=${DB_REDIS_PASSWORD}
+    - DB_REDIS_HOST=${DB_REDIS_HOST}
+    - DB_DYNAMO_PORT_EXPOSED=${DB_DYNAMO_PORT_EXPOSED}
+    - DB_DYNAMO_HOST=${DB_DYNAMO_HOST}
+    - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+    - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+    - AWS_REGION=${AWS_REGION}
+    - INTEGRATION_GOOGLE_BASE_PATH=${INTEGRATION_GOOGLE_BASE_PATH}
+    - INTEGRATION_EXAMPLE_URL=${INTEGRATION_EXAMPLE_URL}
+
+services:
+  app:
+    <<: *common-app

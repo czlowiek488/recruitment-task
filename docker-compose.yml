@@ -1,0 +1,130 @@
+version: '3.5'
+
+volumes:
+  postgres_data:
+  mysql_data:
+  redis_data:
+  dynamodb_data:
+
+networks:
+  app-network:
+
+services:
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    working_dir: /app
+    networks:
+      - app-network
+    ports:
+      - ${DB_MONGO_PORT_EXPOSED}:${DB_MONGO_PORT_RUNNING}
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${DB_MONGO_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${DB_MONGO_ROOT_PASSWORD}
+      MONGO_INITDB_DATABASE: ${DB_MONGO_NAME}
+      MONGO_INITDB_USERNAME: ${DB_MONGO_USERNAME}
+      MONGO_INITDB_PASSWORD: ${DB_MONGO_PASSWORD}
+    volumes:
+      - ./src/shared/db/mongo/init-mongo.sh:/docker-entrypoint-initdb.d/init-mongo.sh
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'mongosh --host 127.0.0.1 --port ${DB_MONGO_PORT_RUNNING} -u root -p root --authenticationDatabase admin --eval "db.runCommand({ ping: 1 })"',
+        ]
+      interval: 1s
+      timeout: 1s
+      retries: 1000
+      start_period: 1s
+
+  postgres:
+    image: postgres
+    container_name: postgres
+    restart: always
+    networks:
+      - app-network
+    ports:
+      - ${DB_POSTGRES_PORT_EXPOSED}:${DB_POSTGRES_PORT_RUNNING}
+    environment:
+      POSTGRES_DB: ${DB_POSTGRES_DB}
+      POSTGRES_USER: ${DB_POSTGRES_USER}
+      POSTGRES_PASSWORD: ${DB_POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test:
+        ['CMD-SHELL', 'pg_isready -U ${DB_POSTGRES_USER} -d ${DB_POSTGRES_DB}']
+      interval: 1s
+      timeout: 1s
+      retries: 1000
+      start_period: 1s
+
+  mysql:
+    image: mysql
+    container_name: mysql
+    restart: always
+    networks:
+      - app-network
+    ports:
+      - '${DB_MYSQL_PORT_EXPOSED}:${DB_MYSQL_PORT_RUNNING}'
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_MYSQL_DATABASE}
+      MYSQL_USER: ${DB_MYSQL_USER}
+      MYSQL_PASSWORD: ${DB_MYSQL_PASSWORD}
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'mysqladmin ping -h 127.0.0.1 -u ${DB_MYSQL_USER} -p${DB_MYSQL_PASSWORD}',
+        ]
+      interval: 1s
+      timeout: 1s
+      retries: 1000
+      start_period: 1s
+
+  redis:
+    image: docker.dragonflydb.io/dragonflydb/dragonfly
+    container_name: redis
+    networks:
+      - app-network
+    ports:
+      - '${DB_REDIS_PORT_EXPOSED}:${DB_REDIS_PORT_RUNNING}'
+    command: ['--requirepass', '${DB_REDIS_PASSWORD}']
+    environment:
+      DB_REDIS_PASSWORD: ${DB_REDIS_PASSWORD}
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'redis-cli -h 127.0.0.1 -p ${DB_REDIS_PORT_RUNNING} -a ${DB_REDIS_PASSWORD} PING',
+        ]
+      interval: 1s
+      timeout: 1s
+      retries: 1000
+      start_period: 1s
+
+  dynamodb:
+    image: amazon/dynamodb-local:latest
+    container_name: dynamodb
+    networks:
+      - app-network
+    ports:
+      - '${DB_DYNAMO_PORT_EXPOSED}:${DB_DYNAMO_PORT_RUNNING}'
+    command: '-jar DynamoDBLocal.jar -sharedDb -inMemory'
+    working_dir: /home/dynamodblocal
+    environment:
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+    volumes:
+      - dynamodb_data:/home/dynamodblocal
+    healthcheck:
+      test: ['CMD-SHELL', 'curl -s http://127.0.0.1:${DB_DYNAMO_PORT_RUNNING}/']
+      interval: 1s
+      timeout: 1s
+      retries: 1000
+      start_period: 1s

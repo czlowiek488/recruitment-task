@@ -1,0 +1,10 @@
+{
+    "typescript.tsdk": "./node_modules/typescript/lib",
+    "eslint.nodePath": "~/.nvm/nvm-exec",
+    "eslint.options": {
+        "overrideConfigFile": "./eslint.config.ts"
+    },
+    "cSpell.words": [
+        "Kysely"
+    ],
+}

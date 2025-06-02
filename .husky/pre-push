@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+APP_LOG_LEVEL=crit DOCKER_COMPOSE_RUN_ARGS="--no-TTY" npm run units
+APP_LOG_LEVEL=crit DOCKER_COMPOSE_RUN_ARGS="--no-TTY" npm run integration

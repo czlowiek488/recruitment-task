@@ -1,0 +1,21 @@
+```mermaid
+flowchart TD
+    subgraph Edges
+      classDef Pass fill:green,color:black
+      start:::Pass@{ shape: circle, label: "start" }
+      succeed:::Pass@{ shape: dbl-circ, label: "succeed" }
+
+      classDef Error fill:red,color:black
+      InvalidCounterError:::Error@{ shape: dbl-circ, label: "InvalidCounter" }
+    end
+
+    subgraph Body
+      classDef Choice fill:yellow,color:black
+      counterIsSmallerThan0{"counter is smaller than 0?"}:::Choice
+
+    end
+
+    start --> counterIsSmallerThan0
+    counterIsSmallerThan0 -->|no| succeed
+    counterIsSmallerThan0 -->|yes| InvalidCounterError
+```

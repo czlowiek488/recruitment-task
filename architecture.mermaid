@@ -1,0 +1,24 @@
+```mermaid
+flowchart TD
+    classDef Actor fill:white,color:black
+
+    httpActor([http actor]):::Actor
+
+    classDef Handler fill:blue,color:white
+
+    internalTest1Handler([base handler]):::Handler
+
+    classDef Api fill:grey,color:white
+
+    baseApi([base api]):::Api
+
+    classDef Db fill:green,color:white
+
+    baseDb([base database]):::Db
+
+
+    httpActor <--> internalTest1Handler
+    internalTest1Handler -..- baseApi
+    internalTest1Handler -..- baseDb
+
+```
