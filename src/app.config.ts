@@ -53,6 +53,10 @@ export const configValidator = zod.object({
   // integration config
   INTEGRATION_GOOGLE_BASE_PATH: zod.string(),
   INTEGRATION_EXAMPLE_URL: zod.string(),
+
+  INTEGRATION_BINANCE_API_KEY: zod.string(),
+  INTEGRATION_BINANCE_SECRET_KEY: zod.string(),
+  INTEGRATION_BINANCE_URL: zod.string(),
 })
 
 export type Config = zod.output<typeof configValidator>
@@ -108,6 +112,10 @@ export const loadConfig = (
     // integration
     INTEGRATION_GOOGLE_BASE_PATH: env.INTEGRATION_GOOGLE_BASE_PATH,
     INTEGRATION_EXAMPLE_URL: env.INTEGRATION_EXAMPLE_URL,
+
+    INTEGRATION_BINANCE_API_KEY: env.INTEGRATION_BINANCE_API_KEY,
+    INTEGRATION_BINANCE_SECRET_KEY: env.INTEGRATION_BINANCE_SECRET_KEY,
+    INTEGRATION_BINANCE_URL: env.INTEGRATION_BINANCE_URL,
   })
 
   if (configValidationResult.success === false) {

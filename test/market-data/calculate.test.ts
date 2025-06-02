@@ -2,8 +2,9 @@ import { DateTime } from 'luxon'
 import { axiosCommonHeadersExpectation, testDependencies } from '../setup'
 import { expect, it } from 'vitest'
 import { ReasonPhrases, StatusCodes } from 'http-status-codes'
+import { prepareMarketDataCalculateTest } from './calculate.test.prepare'
 
-it('internal - test 0 > get health check - using axios', async () => {
+it('market data - get historical data', async () => {
   const testResult = await testDependencies.calculateMarketDataRoute.test({
     body: {
       symbol: 'BTCUSDT',
@@ -13,6 +14,23 @@ it('internal - test 0 > get health check - using axios', async () => {
   })
 
   expect(testResult.data).toStrictEqual({
+    responseBody: {
+      data: {},
+      statusCode: StatusCodes.OK,
+      statusText: ReasonPhrases.OK,
+      succeed: true,
+    },
+    responseHeaders: axiosCommonHeadersExpectation,
+    statusCode: StatusCodes.OK,
+  })
+})
+
+it('market data - get historical data mocks', async () => {
+  const test = await prepareMarketDataCalculateTest()
+
+  const result = await test.execute()
+
+  expect(result.calculateMarketDataRouteTestResult.data).toStrictEqual({
     responseBody: {
       data: {},
       statusCode: StatusCodes.OK,

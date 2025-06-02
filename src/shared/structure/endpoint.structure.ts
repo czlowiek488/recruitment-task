@@ -13,6 +13,8 @@ import { DateTime } from 'luxon'
 export enum EndpointName {
   GOOGLE = 'GOOGLE',
   TEST_2 = 'TEST_2',
+
+  BINANCE_GET_HISTORICAL_TRADE_DATA = 'BINANCE_GET_HISTORICAL_TRADE_DATA',
 }
 
 export type EndpointResponse<

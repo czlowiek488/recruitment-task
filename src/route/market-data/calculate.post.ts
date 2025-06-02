@@ -27,9 +27,23 @@ export const calculateMarketDataRoute = createRoute(
       after: [dependencies.errorHandlerMiddleware],
     },
     handler: async (req, res, sendResponse) => {
+      const result = await dependencies.marketDataCalculateHandler.execute({})
+      if (result.succeed === true) {
+        return sendResponse(
+          StatusCodes.OK,
+          new Result(true, 'route succeed', {}),
+          {},
+        )
+      }
       return sendResponse(
-        StatusCodes.OK,
-        new Result(true, 'route succeed', {}),
+        StatusCodes.INTERNAL_SERVER_ERROR,
+        new Result(
+          false,
+          'route did not handled an error',
+          {},
+          'ROUTE_UNHANDLED_ERROR',
+          result,
+        ),
         {},
       )
     },

@@ -47,6 +47,8 @@ import { createDbManager } from './shared/db/db.manager'
 import { healthCheckGetRoute } from './route/internal/health-check.route.get'
 import { internalHealthCheckHandler } from './handler/internal/health-check.handler'
 import { calculateMarketDataRoute } from './route/market-data/calculate.post'
+import { marketDataCalculateHandler } from './handler/market-data/calculate.handler'
+import { binanceKlinesEndpoint } from './integration/binance.integration.endpoint'
 
 export const dbManager = createDbManager({
   REDIS: redisDb,
@@ -109,10 +111,12 @@ export type Dependencies = {
   internalTest1Handler: ReturnType<typeof internalTest1Handler>
   internalTest2Handler: ReturnType<typeof internalTest2Handler>
   internalHealthCheckHandler: ReturnType<typeof internalHealthCheckHandler>
+  marketDataCalculateHandler: ReturnType<typeof marketDataCalculateHandler>
 
   // endpoint list
   googleEndpoint: ReturnType<typeof googleEndpoint>
   test2Endpoint: ReturnType<typeof test2Endpoint>
+  binanceKlinesEndpoint: ReturnType<typeof binanceKlinesEndpoint>
 }
 
 export const routeList = {
@@ -197,6 +201,9 @@ export const loadAppContainer = <TDependencies extends Dependencies>(
     internalHealthCheckHandler: asProxied(internalHealthCheckHandler, [
       loggerProxy({ dependencyName: 'internalHealthCheckHandler' }),
     ]),
+    marketDataCalculateHandler: asProxied(marketDataCalculateHandler, [
+      loggerProxy({ dependencyName: 'marketDataCalculateHandler' }),
+    ]),
 
     // endpoint list
     googleEndpoint: asProxied(googleEndpoint, [
@@ -204,6 +211,9 @@ export const loadAppContainer = <TDependencies extends Dependencies>(
     ]).singleton(),
     test2Endpoint: asProxied(test2Endpoint, [
       loggerProxy({ dependencyName: 'test2Endpoint' }),
+    ]).singleton(),
+    binanceKlinesEndpoint: asProxied(binanceKlinesEndpoint, [
+      loggerProxy({ dependencyName: 'binanceKlinesEndpoint' }),
     ]).singleton(),
 
     //route list
