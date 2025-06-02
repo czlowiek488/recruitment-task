@@ -3,6 +3,7 @@ import { zod } from '../../shared/lib/zod.lib'
 import { createRoute } from '../../shared/structure/route.structure'
 import { Result } from '../../shared/lib/result.lib'
 import { RouteName } from '../../shared/enum/route-name.enum'
+import { BinanceIntervalCharacter } from '../../integration/binance.integration.endpoint'
 
 export const calculateMarketDataRoute = createRoute(
   zod.object({
@@ -24,6 +25,7 @@ export const calculateMarketDataRoute = createRoute(
       symbol: zod.string(),
       timeStart: zod.number(),
       timeEnd: zod.number(),
+      interval: zod.nativeEnum(BinanceIntervalCharacter),
     }),
   }),
   (dependencies) => ({
@@ -42,6 +44,7 @@ export const calculateMarketDataRoute = createRoute(
         symbol: req.body.symbol,
         timeEnd: req.body.timeEnd,
         timeStart: req.body.timeStart,
+        interval: req.body.interval,
       })
       if (result.succeed === true) {
         return sendResponse(

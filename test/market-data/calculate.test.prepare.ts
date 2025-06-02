@@ -1,9 +1,11 @@
 import { DateTime } from 'luxon'
 import { testDependencies } from '../setup'
 import { StatusCodes } from 'http-status-codes'
+import { BinanceIntervalCharacter } from '../../src/integration/binance.integration.endpoint'
 
 export const prepareMarketDataCalculateTest = async (payload: {
   noData?: boolean
+  interval?: BinanceIntervalCharacter
 }) => {
   const mocks = {
     binanceKlinesEndpoint: testDependencies.binanceKlinesEndpoint.mock({
@@ -44,6 +46,7 @@ export const prepareMarketDataCalculateTest = async (payload: {
             symbol: 'BTCUSDT',
             timeStart: DateTime.now().toMillis() - 1_000_000,
             timeEnd: DateTime.now().toMillis(),
+            interval: payload.interval || BinanceIntervalCharacter.m,
           },
         })
       return { calculateMarketDataRouteTestResult }

@@ -1,9 +1,15 @@
 import { createHandler } from '../../shared/structure/handler.structure'
 import { HandlerName } from '../../shared/enum/handler-name.enum'
 import { Result } from '../../shared/lib/result.lib'
+import type { BinanceIntervalCharacter } from '../../integration/binance.integration.endpoint'
 
 export const marketDataCalculateHandler = createHandler<
-  { symbol: string; timeStart: number; timeEnd: number },
+  {
+    symbol: string
+    timeStart: number
+    timeEnd: number
+    interval: BinanceIntervalCharacter
+  },
   {
     changeList: {
       openPrice: number
@@ -21,6 +27,7 @@ export const marketDataCalculateHandler = createHandler<
       symbol: payload.symbol,
       startTime: payload.timeStart,
       endTime: payload.timeEnd,
+      interval: payload.interval,
     })
 
   if (getHistoricalDataResult.succeed === false) {

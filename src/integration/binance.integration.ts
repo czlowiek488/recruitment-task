@@ -2,12 +2,14 @@ import type { Dependencies } from '../app'
 import { logger } from '../shared/lib/logger.lib'
 import { Result } from '../shared/lib/result.lib'
 import type { FunctionResult } from '../shared/lib/result.lib'
+import type { BinanceIntervalCharacter } from './binance.integration.endpoint'
 
 export type BinanceIntegration = {
   getHistoricalData: (payload: {
     symbol: string
     startTime: number
     endTime: number
+    interval: BinanceIntervalCharacter
   }) => FunctionResult<
     Promise<{
       changeList: {
@@ -32,7 +34,7 @@ export const binanceIntegration = (
       headers: undefined,
       params: undefined,
       query: {
-        interval: '1m',
+        interval: `1${payload.interval}`,
         symbol: payload.symbol,
         startTime: String(payload.startTime),
         endTime: String(payload.endTime),

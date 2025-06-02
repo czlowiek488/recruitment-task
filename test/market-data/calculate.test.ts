@@ -3,6 +3,7 @@ import { axiosCommonHeadersExpectation, testDependencies } from '../setup'
 import { expect, it } from 'vitest'
 import { ReasonPhrases, StatusCodes } from 'http-status-codes'
 import { prepareMarketDataCalculateTest } from './calculate.test.prepare'
+import { BinanceIntervalCharacter } from '../../src/integration/binance.integration.endpoint'
 
 it('market data - get historical data api', async () => {
   const testResult = await testDependencies.calculateMarketDataRoute.test({
@@ -10,6 +11,7 @@ it('market data - get historical data api', async () => {
       symbol: 'BTCUSDT',
       timeStart: DateTime.now().toMillis() - 1_000_000,
       timeEnd: DateTime.now().toMillis(),
+      interval: BinanceIntervalCharacter.m,
     },
   })
 
@@ -146,6 +148,7 @@ it('market data - get historical data mocks - no data', async () => {
               symbol: expect.any(String),
               timeEnd: expect.any(Number),
               timeStart: expect.any(Number),
+              interval: expect.any(String),
             },
             executionId: expect.any(String),
             id: expect.any(String),

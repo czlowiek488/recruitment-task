@@ -10,6 +10,15 @@ import {
   EndpointName,
 } from '../shared/structure/endpoint.structure'
 
+export enum BinanceIntervalCharacter {
+  s = 's',
+  w = 'w',
+  m = 'm',
+  h = 'h',
+  d = 'd',
+  M = 'M',
+}
+
 export const binanceKlinesEndpoint = createEndpoint((dependencies) => ({
   endpointName: EndpointName.BINANCE_GET_HISTORICAL_TRADE_DATA,
   method: HTTPMethod.GET,
@@ -22,7 +31,7 @@ export const binanceKlinesEndpoint = createEndpoint((dependencies) => ({
       undefined,
       {
         symbol: string
-        interval: `${number}${'s' | 'w' | 'm' | 'h' | 'd' | 'M'}`
+        interval: `${number}${BinanceIntervalCharacter}`
         startTime: string
         endTime: string
       },
