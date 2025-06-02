@@ -11,6 +11,12 @@ export const marketDataCalculateHandler = createHandler<
     interval: BinanceIntervalCharacter
   },
   {
+    lowestOpenPrice: number
+    highestOpenPrice: number
+    lowestClosePrice: number
+    highestClosePrice: number
+    volumeSum: number
+    numberOfAllTrades: number
     changeList: {
       openPrice: number
       closePrice: number
@@ -29,29 +35,49 @@ export const marketDataCalculateHandler = createHandler<
       endTime: payload.timeEnd,
       interval: payload.interval,
     })
-
-  if (getHistoricalDataResult.succeed === false) {
-    switch (getHistoricalDataResult.name) {
-      case 'INTEGRATION_BINANCE_NO_KLINE_DATA_ERROR':
-        return new Result(
-          false,
-          'handler acquiring data failed',
-          payload,
-          'HANDLER_NO_DATA_ERROR',
-          getHistoricalDataResult,
-        )
-      default:
-        return new Result(
-          false,
-          'handler execution failed',
-          payload,
-          'HANDLER_EXECUTION_ERROR',
-          getHistoricalDataResult,
-        )
-    }
+  if (getHistoricalDataResult.succeed === true) {
+    const changeListSortedByOpenPrice =
+      getHistoricalDataResult.data.changeList.sort(
+        (a, b) => a.openPrice - b.openPrice,
+      )
+    const changeListSortedByClosePrice =
+      getHistoricalDataResult.data.changeList.sort(
+        (a, b) => a.closePrice - b.closePrice,
+      )
+    const volumeSum = getHistoricalDataResult.data.changeList.reduce(
+      (acc, change) => acc + change.volume,
+      0,
+    )
+    const numberOfAllTrades = getHistoricalDataResult.data.changeList.reduce(
+      (acc, change) => acc + change.numberOfTrades,
+      0,
+    )
+    return new Result(true, `handler market data calculate succeed`, {
+      lowestOpenPrice: changeListSortedByOpenPrice[0]!.openPrice,
+      highestOpenPrice: changeListSortedByOpenPrice.at(-1)!.openPrice,
+      lowestClosePrice: changeListSortedByClosePrice[0]!.closePrice,
+      highestClosePrice: changeListSortedByClosePrice.at(-1)!.closePrice,
+      volumeSum,
+      numberOfAllTrades,
+      changeList: getHistoricalDataResult.data.changeList,
+    })
   }
-
-  return new Result(true, `handler market data calculate succeed`, {
-    changeList: getHistoricalDataResult.data.changeList,
-  })
+  switch (getHistoricalDataResult.name) {
+    case 'INTEGRATION_BINANCE_NO_KLINE_DATA_ERROR':
+      return new Result(
+        false,
+        'handler acquiring data failed',
+        payload,
+        'HANDLER_NO_DATA_ERROR',
+        getHistoricalDataResult,
+      )
+    default:
+      return new Result(
+        false,
+        'handler execution failed',
+        payload,
+        'HANDLER_EXECUTION_ERROR',
+        getHistoricalDataResult,
+      )
+  }
 })

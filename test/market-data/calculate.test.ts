@@ -18,6 +18,12 @@ it('market data - get historical data api', async () => {
   expect(testResult.data).toStrictEqual({
     responseBody: {
       data: {
+        highestClosePrice: expect.any(Number),
+        highestOpenPrice: expect.any(Number),
+        lowestClosePrice: expect.any(Number),
+        lowestOpenPrice: expect.any(Number),
+        numberOfAllTrades: expect.any(Number),
+        volumeSum: expect.any(Number),
         changeList: expect.arrayContaining([
           {
             closePrice: expect.any(Number),
@@ -46,6 +52,12 @@ it('market data - get historical data mocks - with data', async () => {
   expect(result.calculateMarketDataRouteTestResult.data).toStrictEqual({
     responseBody: {
       data: {
+        highestClosePrice: expect.any(Number),
+        highestOpenPrice: expect.any(Number),
+        lowestClosePrice: expect.any(Number),
+        lowestOpenPrice: expect.any(Number),
+        numberOfAllTrades: expect.any(Number),
+        volumeSum: expect.any(Number),
         changeList: [
           {
             closePrice: expect.any(Number),

@@ -7,6 +7,12 @@ import { BinanceIntervalCharacter } from '../../integration/binance.integration.
 
 export const calculateMarketDataRoute = createRoute(
   zod.object({
+    lowestOpenPrice: zod.number(),
+    highestOpenPrice: zod.number(),
+    lowestClosePrice: zod.number(),
+    highestClosePrice: zod.number(),
+    volumeSum: zod.number(),
+    numberOfAllTrades: zod.number(),
     changeList: zod.array(
       zod.object({
         openPrice: zod.number(),
@@ -49,9 +55,7 @@ export const calculateMarketDataRoute = createRoute(
       if (result.succeed === true) {
         return sendResponse(
           StatusCodes.OK,
-          new Result(true, 'route succeed', {
-            changeList: result.data.changeList,
-          }),
+          new Result(true, 'route succeed', result.data),
           {},
         )
       }
