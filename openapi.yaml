@@ -1,0 +1,3902 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Starter Esm - Starter for modern Node.js applications",
+    "version": "1.0.0",
+    "description": ""
+  },
+  "paths": {
+    "/com/google/": {
+      "get": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {},
+                "required": []
+              },
+              "examples": {
+                "example#0": {
+                  "value": {}
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "response when api returns 200 statusCode",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "DONE"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": []
+    },
+    "/com/test2/": {
+      "get": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "testRequestDataKey": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "testRequestDataKey"
+                ]
+              },
+              "examples": {
+                "example#0": {
+                  "value": {
+                    "testRequestDataKey": "testRequestDataValue"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "response when api returns 200 statusCode",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "testResponseDataKey": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "testResponseDataKey"
+                  ]
+                },
+                "examples": {
+                  "example#0": {
+                    "value": {
+                      "testResponseDataKey": "testResponseDataValue"
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "testresponseheaderkey": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "testResponseHeaderValue"
+                  }
+                }
+              },
+              "content-type": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "application/json"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "header",
+            "name": "testrequestheaderkey",
+            "schema": {
+              "type": "string"
+            },
+            "example": "testRequestHeaderValue"
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/localhost/base/": {
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "counter": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "counter"
+                ]
+              },
+              "examples": {
+                "example#0": {
+                  "value": {
+                    "counter": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "response when api returns 200 statusCode",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "succeed": {
+                      "type": "boolean"
+                    },
+                    "statusText": {
+                      "type": "string"
+                    },
+                    "statusCode": {
+                      "type": "number"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "counterId": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "counterId"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "succeed",
+                    "statusText",
+                    "statusCode",
+                    "data"
+                  ]
+                },
+                "examples": {
+                  "example#0": {
+                    "value": {
+                      "succeed": true,
+                      "statusText": "OK",
+                      "statusCode": 200,
+                      "data": {
+                        "counterId": "04b02fd8-00ea-4607-8b90-a497da8a6e12"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "x-powered-by": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "Express"
+                  }
+                }
+              },
+              "content-type": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "application/json; charset=utf-8"
+                  }
+                }
+              },
+              "etag": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "W/\"6f-MBaQFN6+N6YOA347plWY9mkXWbc\""
+                  }
+                }
+              },
+              "date": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "Mon, 02 Jun 2025 12:25:23 GMT"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": []
+    },
+    "/localhost/internal/test_2/:counterId/": {
+      "get": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {},
+                "required": []
+              },
+              "examples": {
+                "example#0": {
+                  "value": {}
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "response when api returns 200 statusCode",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "succeed": {
+                      "type": "boolean"
+                    },
+                    "statusText": {
+                      "type": "string"
+                    },
+                    "statusCode": {
+                      "type": "number"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "counter": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "counter"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "succeed",
+                    "statusText",
+                    "statusCode",
+                    "data"
+                  ]
+                },
+                "examples": {
+                  "example#0": {
+                    "value": {
+                      "succeed": true,
+                      "statusText": "OK",
+                      "statusCode": 200,
+                      "data": {
+                        "counter": 1
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "x-powered-by": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "Express"
+                  }
+                }
+              },
+              "content-type": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "application/json; charset=utf-8"
+                  }
+                }
+              },
+              "etag": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "W/\"48-7J0XHRHdBk1LsyBUTsZewyRGx4U\""
+                  }
+                }
+              },
+              "date": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "Mon, 02 Jun 2025 12:25:23 GMT"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "response when api returns 500 statusCode",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "succeed": {
+                          "type": "boolean"
+                        },
+                        "statusText": {
+                          "type": "string"
+                        },
+                        "statusCode": {
+                          "type": "number"
+                        },
+                        "data": {
+                          "type": "object",
+                          "properties": {},
+                          "required": []
+                        },
+                        "error": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string"
+                            },
+                            "message": {
+                              "type": "string"
+                            },
+                            "list": {
+                              "type": "array",
+                              "prefixItems": [
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "name": {
+                                      "type": "string"
+                                    },
+                                    "message": {
+                                      "type": "string"
+                                    },
+                                    "path": {
+                                      "type": "string"
+                                    },
+                                    "succeed": {
+                                      "type": "boolean"
+                                    },
+                                    "data": {
+                                      "type": "object",
+                                      "properties": {},
+                                      "required": []
+                                    },
+                                    "parent": {
+                                      "type": "null"
+                                    },
+                                    "causeList": {
+                                      "type": "array",
+                                      "prefixItems": [
+                                        {
+                                          "type": "string"
+                                        },
+                                        {
+                                          "type": "string"
+                                        },
+                                        {
+                                          "type": "string"
+                                        },
+                                        {
+                                          "type": "string"
+                                        }
+                                      ]
+                                    },
+                                    "executionId": {
+                                      "type": "string"
+                                    },
+                                    "id": {
+                                      "type": "string"
+                                    },
+                                    "stack": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "name",
+                                    "message",
+                                    "path",
+                                    "succeed",
+                                    "data",
+                                    "parent",
+                                    "causeList",
+                                    "executionId",
+                                    "id",
+                                    "stack"
+                                  ]
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "name": {
+                                      "type": "string"
+                                    },
+                                    "message": {
+                                      "type": "string"
+                                    },
+                                    "path": {
+                                      "type": "string"
+                                    },
+                                    "succeed": {
+                                      "type": "boolean"
+                                    },
+                                    "data": {
+                                      "type": "object",
+                                      "properties": {
+                                        "name": {
+                                          "type": "string"
+                                        },
+                                        "executionId": {
+                                          "type": "string"
+                                        },
+                                        "payload": {
+                                          "type": "object",
+                                          "properties": {
+                                            "counterId": {
+                                              "type": "string"
+                                            },
+                                            "databaseType": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "counterId",
+                                            "databaseType"
+                                          ]
+                                        }
+                                      },
+                                      "required": [
+                                        "name",
+                                        "executionId",
+                                        "payload"
+                                      ]
+                                    },
+                                    "parent": {
+                                      "type": "null"
+                                    },
+                                    "causeList": {
+                                      "type": "array",
+                                      "prefixItems": [
+                                        {
+                                          "type": "string"
+                                        },
+                                        {
+                                          "type": "string"
+                                        },
+                                        {
+                                          "type": "string"
+                                        }
+                                      ]
+                                    },
+                                    "executionId": {
+                                      "type": "string"
+                                    },
+                                    "id": {
+                                      "type": "string"
+                                    },
+                                    "stack": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "name",
+                                    "message",
+                                    "path",
+                                    "succeed",
+                                    "data",
+                                    "parent",
+                                    "causeList",
+                                    "executionId",
+                                    "id",
+                                    "stack"
+                                  ]
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "name": {
+                                      "type": "string"
+                                    },
+                                    "message": {
+                                      "type": "string"
+                                    },
+                                    "path": {
+                                      "type": "string"
+                                    },
+                                    "succeed": {
+                                      "type": "boolean"
+                                    },
+                                    "data": {
+                                      "type": "object",
+                                      "properties": {
+                                        "method": {
+                                          "type": "string"
+                                        },
+                                        "url": {
+                                          "type": "string"
+                                        },
+                                        "data": {
+                                          "type": "object",
+                                          "properties": {
+                                            "testRequestDataKey": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "testRequestDataKey"
+                                          ]
+                                        },
+                                        "headers": {
+                                          "type": "object",
+                                          "properties": {
+                                            "testRequestHeaderKey": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "testRequestHeaderKey"
+                                          ]
+                                        }
+                                      },
+                                      "required": [
+                                        "method",
+                                        "url",
+                                        "data",
+                                        "headers"
+                                      ]
+                                    },
+                                    "parent": {
+                                      "type": "null"
+                                    },
+                                    "causeList": {
+                                      "type": "array",
+                                      "prefixItems": [
+                                        {
+                                          "type": "string"
+                                        },
+                                        {
+                                          "type": "string"
+                                        }
+                                      ]
+                                    },
+                                    "executionId": {
+                                      "type": "string"
+                                    },
+                                    "id": {
+                                      "type": "string"
+                                    },
+                                    "stack": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "name",
+                                    "message",
+                                    "path",
+                                    "succeed",
+                                    "data",
+                                    "parent",
+                                    "causeList",
+                                    "executionId",
+                                    "id",
+                                    "stack"
+                                  ]
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "message": {
+                                      "type": "string"
+                                    },
+                                    "isAxiosError": {
+                                      "type": "boolean"
+                                    },
+                                    "code": {
+                                      "type": "null"
+                                    },
+                                    "config": {
+                                      "type": "object",
+                                      "properties": {
+                                        "url": {
+                                          "type": "string"
+                                        },
+                                        "method": {
+                                          "type": "string"
+                                        },
+                                        "headers": {
+                                          "type": "object",
+                                          "properties": {
+                                            "Accept": {
+                                              "type": "string"
+                                            },
+                                            "Content-Type": {
+                                              "type": "string"
+                                            },
+                                            "testRequestHeaderKey": {
+                                              "type": "string"
+                                            },
+                                            "User-Agent": {
+                                              "type": "string"
+                                            },
+                                            "Content-Length": {
+                                              "type": "string"
+                                            },
+                                            "Accept-Encoding": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "Accept",
+                                            "Content-Type",
+                                            "testRequestHeaderKey",
+                                            "User-Agent",
+                                            "Content-Length",
+                                            "Accept-Encoding"
+                                          ]
+                                        },
+                                        "data": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "url",
+                                        "method",
+                                        "headers",
+                                        "data"
+                                      ]
+                                    },
+                                    "response": {
+                                      "type": "null"
+                                    },
+                                    "stack": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "message",
+                                    "isAxiosError",
+                                    "code",
+                                    "config",
+                                    "response",
+                                    "stack"
+                                  ]
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "name",
+                            "message",
+                            "list"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "succeed",
+                        "statusText",
+                        "statusCode",
+                        "data",
+                        "error"
+                      ],
+                      "title": "schema#0"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "succeed": {
+                          "type": "boolean"
+                        },
+                        "statusText": {
+                          "type": "string"
+                        },
+                        "statusCode": {
+                          "type": "number"
+                        },
+                        "data": {
+                          "type": "object",
+                          "properties": {},
+                          "required": []
+                        },
+                        "error": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string"
+                            },
+                            "message": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "name",
+                            "message"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "succeed",
+                        "statusText",
+                        "statusCode",
+                        "data",
+                        "error"
+                      ],
+                      "title": "schema#1"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "succeed": {
+                          "type": "boolean"
+                        },
+                        "statusText": {
+                          "type": "string"
+                        },
+                        "statusCode": {
+                          "type": "number"
+                        },
+                        "data": {
+                          "type": "object",
+                          "properties": {},
+                          "required": []
+                        },
+                        "error": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string"
+                            },
+                            "message": {
+                              "type": "string"
+                            },
+                            "list": {
+                              "type": "array",
+                              "prefixItems": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "string"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "name",
+                            "message",
+                            "list"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "succeed",
+                        "statusText",
+                        "statusCode",
+                        "data",
+                        "error"
+                      ],
+                      "title": "schema#2"
+                    }
+                  ]
+                },
+                "examples": {
+                  "example#0": {
+                    "value": {
+                      "succeed": false,
+                      "statusText": "Internal Server Error",
+                      "statusCode": 500,
+                      "data": {},
+                      "error": {
+                        "name": "ROUTE_UNHANDLED_ERROR",
+                        "message": "route did not handled an error",
+                        "list": [
+                          {
+                            "name": "ROUTE_UNHANDLED_ERROR",
+                            "message": "route did not handled an error",
+                            "path": "/src/route/internal/test2.route.get.ts:57:13",
+                            "succeed": false,
+                            "data": {},
+                            "parent": null,
+                            "causeList": [
+                              "ROUTE_UNHANDLED_ERROR",
+                              "HANDLER_EXECUTION_CAUGHT_ERROR",
+                              "ENDPOINT_REQUEST_ERROR",
+                              "Error"
+                            ],
+                            "executionId": "c9d735d7-fa6d-40fa-a713-05de18c833fe",
+                            "id": "83f10ffc-3cec-448c-985c-ec7234965a56",
+                            "stack": "ROUTE_UNHANDLED_ERROR: route did not handled an error\n    at handler (/app/src/route/internal/test2.route.get.ts:57:13)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at route.handler (/app/src/shared/structure/route.structure.ts:494:7)"
+                          },
+                          {
+                            "name": "HANDLER_EXECUTION_CAUGHT_ERROR",
+                            "message": "handler execution error caught",
+                            "path": "/src/shared/structure/handler.structure.ts:104:18",
+                            "succeed": false,
+                            "data": {
+                              "name": "INTERNAL_TEST_2",
+                              "executionId": "e2f4a6f6-cb3b-4376-bbf1-fe9dc1448288",
+                              "payload": {
+                                "counterId": "61045947-ceb7-4d50-a91a-fbf1094cc511",
+                                "databaseType": "DYNAMO"
+                              }
+                            },
+                            "parent": null,
+                            "causeList": [
+                              "HANDLER_EXECUTION_CAUGHT_ERROR",
+                              "ENDPOINT_REQUEST_ERROR",
+                              "Error"
+                            ],
+                            "executionId": "c9d735d7-fa6d-40fa-a713-05de18c833fe",
+                            "id": "63365304-e6e4-4d60-acdc-41465fd4f12e",
+                            "stack": "HANDLER_EXECUTION_CAUGHT_ERROR: handler execution error caught\n    at Object.execute (/app/src/shared/structure/handler.structure.ts:104:18)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)"
+                          },
+                          {
+                            "name": "ENDPOINT_REQUEST_ERROR",
+                            "message": "endpoint request failed",
+                            "path": "/src/shared/structure/endpoint.structure.ts:287:17",
+                            "succeed": false,
+                            "data": {
+                              "method": "GET",
+                              "url": "http://test2.com/?testRequestQueryKey=testRequestQueryValue",
+                              "data": {
+                                "testRequestDataKey": "testRequestDataValue"
+                              },
+                              "headers": {
+                                "testRequestHeaderKey": "testRequestHeaderValue"
+                              }
+                            },
+                            "parent": null,
+                            "causeList": [
+                              "ENDPOINT_REQUEST_ERROR",
+                              "Error"
+                            ],
+                            "executionId": "c9d735d7-fa6d-40fa-a713-05de18c833fe",
+                            "id": "3af9c771-70f0-439f-b038-29e226755220",
+                            "stack": "ENDPOINT_REQUEST_ERROR: endpoint request failed\n    at Object.request (/app/src/shared/structure/endpoint.structure.ts:287:17)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)"
+                          },
+                          {
+                            "message": "mocked error on request object",
+                            "isAxiosError": true,
+                            "code": null,
+                            "config": {
+                              "url": "http://test2.com/?testRequestQueryKey=testRequestQueryValue",
+                              "method": "get",
+                              "headers": {
+                                "Accept": "application/json, text/plain, */*",
+                                "Content-Type": "application/json",
+                                "testRequestHeaderKey": "testRequestHeaderValue",
+                                "User-Agent": "axios/1.9.0",
+                                "Content-Length": "45",
+                                "Accept-Encoding": "gzip, compress, deflate, br"
+                              },
+                              "data": "{\"testRequestDataKey\":\"testRequestDataValue\"}"
+                            },
+                            "response": null,
+                            "stack": "Error: mocked error on request object\n    at Function.AxiosError.from (file:///app/node_modules/axios/lib/core/AxiosError.js:92:14)\n    at RedirectableRequest.handleRequestError (file:///app/node_modules/axios/lib/adapters/http.js:620:25)\n    at RedirectableRequest.emit (node:events:517:28)\n    at ClientRequest.eventHandlers.<computed> (/app/node_modules/follow-redirects/index.js:49:24)\n    at ClientRequest.emit (node:events:517:28)\n    at MockHttpSocket.socketErrorListener (node:_http_client:501:9)\n    at MockHttpSocket.emit (node:events:517:28)\n    at MockHttpSocket.emit (/app/node_modules/@mswjs/interceptors/src/interceptors/ClientRequest/MockHttpSocket.ts:154:12)\n    at MockHttpSocket.destroy (/app/node_modules/@mswjs/interceptors/src/interceptors/ClientRequest/MockHttpSocket.ts:164:12)\n    at MockHttpSocket.errorWith (/app/node_modules/@mswjs/interceptors/src/interceptors/ClientRequest/MockHttpSocket.ts:404:10)\n    at Axios.request (file:///app/node_modules/axios/lib/core/Axios.js:45:41)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at Object.request (/app/src/shared/structure/endpoint.structure.ts:242:26)"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "example#1": {
+                    "value": {
+                      "succeed": false,
+                      "statusText": "Internal Server Error",
+                      "statusCode": 500,
+                      "data": {},
+                      "error": {
+                        "name": "ROUTE_UNHANDLED_ERROR",
+                        "message": "route did not handled an error"
+                      }
+                    }
+                  },
+                  "example#2": {
+                    "value": {
+                      "succeed": false,
+                      "statusText": "Internal Server Error",
+                      "statusCode": 500,
+                      "data": {},
+                      "error": {
+                        "name": "ROUTE_UNHANDLED_ERROR",
+                        "message": "route did not handled an error",
+                        "list": [
+                          "ROUTE_UNHANDLED_ERROR",
+                          "HANDLER_EXECUTION_CAUGHT_ERROR",
+                          "ENDPOINT_REQUEST_ERROR",
+                          "Error"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "x-powered-by": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "Express"
+                  }
+                }
+              },
+              "content-type": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "application/json; charset=utf-8"
+                  }
+                }
+              },
+              "etag": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "title": "schema#0"
+                    },
+                    {
+                      "type": "string",
+                      "title": "schema#1"
+                    }
+                  ]
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "W/\"f7e-dPTO7a9dDeLbq1ug/gbFrNuyOLs\""
+                  },
+                  "example#1": {
+                    "value": "W/\"a5-s2cf1+sdTZKFTuzER+dgmhZl42g\""
+                  }
+                }
+              },
+              "date": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "Mon, 02 Jun 2025 12:25:24 GMT"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": []
+    },
+    "/localhost/calculate/": {
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "symbol": {
+                    "type": "string"
+                  },
+                  "timeStart": {
+                    "type": "number"
+                  },
+                  "timeEnd": {
+                    "type": "number"
+                  },
+                  "interval": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "symbol",
+                  "timeStart",
+                  "timeEnd",
+                  "interval"
+                ]
+              },
+              "examples": {
+                "example#0": {
+                  "value": {
+                    "symbol": "BTCUSDT",
+                    "timeStart": 1748866125272,
+                    "timeEnd": 1748867125272,
+                    "interval": "m"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "response when api returns 200 statusCode",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "succeed": {
+                          "type": "boolean"
+                        },
+                        "statusText": {
+                          "type": "string"
+                        },
+                        "statusCode": {
+                          "type": "number"
+                        },
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "lowestOpenPrice": {
+                              "type": "number"
+                            },
+                            "highestOpenPrice": {
+                              "type": "number"
+                            },
+                            "lowestClosePrice": {
+                              "type": "number"
+                            },
+                            "highestClosePrice": {
+                              "type": "number"
+                            },
+                            "volumeSum": {
+                              "type": "number"
+                            },
+                            "numberOfAllTrades": {
+                              "type": "number"
+                            },
+                            "changeList": {
+                              "type": "array",
+                              "prefixItems": [
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "openPrice": {
+                                      "type": "number"
+                                    },
+                                    "closePrice": {
+                                      "type": "number"
+                                    },
+                                    "volume": {
+                                      "type": "number"
+                                    },
+                                    "openTime": {
+                                      "type": "number"
+                                    },
+                                    "closeTime": {
+                                      "type": "number"
+                                    },
+                                    "numberOfTrades": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "required": [
+                                    "openPrice",
+                                    "closePrice",
+                                    "volume",
+                                    "openTime",
+                                    "closeTime",
+                                    "numberOfTrades"
+                                  ]
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "openPrice": {
+                                      "type": "number"
+                                    },
+                                    "closePrice": {
+                                      "type": "number"
+                                    },
+                                    "volume": {
+                                      "type": "number"
+                                    },
+                                    "openTime": {
+                                      "type": "number"
+                                    },
+                                    "closeTime": {
+                                      "type": "number"
+                                    },
+                                    "numberOfTrades": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "required": [
+                                    "openPrice",
+                                    "closePrice",
+                                    "volume",
+                                    "openTime",
+                                    "closeTime",
+                                    "numberOfTrades"
+                                  ]
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "openPrice": {
+                                      "type": "number"
+                                    },
+                                    "closePrice": {
+                                      "type": "number"
+                                    },
+                                    "volume": {
+                                      "type": "number"
+                                    },
+                                    "openTime": {
+                                      "type": "number"
+                                    },
+                                    "closeTime": {
+                                      "type": "number"
+                                    },
+                                    "numberOfTrades": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "required": [
+                                    "openPrice",
+                                    "closePrice",
+                                    "volume",
+                                    "openTime",
+                                    "closeTime",
+                                    "numberOfTrades"
+                                  ]
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "openPrice": {
+                                      "type": "number"
+                                    },
+                                    "closePrice": {
+                                      "type": "number"
+                                    },
+                                    "volume": {
+                                      "type": "number"
+                                    },
+                                    "openTime": {
+                                      "type": "number"
+                                    },
+                                    "closeTime": {
+                                      "type": "number"
+                                    },
+                                    "numberOfTrades": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "required": [
+                                    "openPrice",
+                                    "closePrice",
+                                    "volume",
+                                    "openTime",
+                                    "closeTime",
+                                    "numberOfTrades"
+                                  ]
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "openPrice": {
+                                      "type": "number"
+                                    },
+                                    "closePrice": {
+                                      "type": "number"
+                                    },
+                                    "volume": {
+                                      "type": "number"
+                                    },
+                                    "openTime": {
+                                      "type": "number"
+                                    },
+                                    "closeTime": {
+                                      "type": "number"
+                                    },
+                                    "numberOfTrades": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "required": [
+                                    "openPrice",
+                                    "closePrice",
+                                    "volume",
+                                    "openTime",
+                                    "closeTime",
+                                    "numberOfTrades"
+                                  ]
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "openPrice": {
+                                      "type": "number"
+                                    },
+                                    "closePrice": {
+                                      "type": "number"
+                                    },
+                                    "volume": {
+                                      "type": "number"
+                                    },
+                                    "openTime": {
+                                      "type": "number"
+                                    },
+                                    "closeTime": {
+                                      "type": "number"
+                                    },
+                                    "numberOfTrades": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "required": [
+                                    "openPrice",
+                                    "closePrice",
+                                    "volume",
+                                    "openTime",
+                                    "closeTime",
+                                    "numberOfTrades"
+                                  ]
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "openPrice": {
+                                      "type": "number"
+                                    },
+                                    "closePrice": {
+                                      "type": "number"
+                                    },
+                                    "volume": {
+                                      "type": "number"
+                                    },
+                                    "openTime": {
+                                      "type": "number"
+                                    },
+                                    "closeTime": {
+                                      "type": "number"
+                                    },
+                                    "numberOfTrades": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "required": [
+                                    "openPrice",
+                                    "closePrice",
+                                    "volume",
+                                    "openTime",
+                                    "closeTime",
+                                    "numberOfTrades"
+                                  ]
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "openPrice": {
+                                      "type": "number"
+                                    },
+                                    "closePrice": {
+                                      "type": "number"
+                                    },
+                                    "volume": {
+                                      "type": "number"
+                                    },
+                                    "openTime": {
+                                      "type": "number"
+                                    },
+                                    "closeTime": {
+                                      "type": "number"
+                                    },
+                                    "numberOfTrades": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "required": [
+                                    "openPrice",
+                                    "closePrice",
+                                    "volume",
+                                    "openTime",
+                                    "closeTime",
+                                    "numberOfTrades"
+                                  ]
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "openPrice": {
+                                      "type": "number"
+                                    },
+                                    "closePrice": {
+                                      "type": "number"
+                                    },
+                                    "volume": {
+                                      "type": "number"
+                                    },
+                                    "openTime": {
+                                      "type": "number"
+                                    },
+                                    "closeTime": {
+                                      "type": "number"
+                                    },
+                                    "numberOfTrades": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "required": [
+                                    "openPrice",
+                                    "closePrice",
+                                    "volume",
+                                    "openTime",
+                                    "closeTime",
+                                    "numberOfTrades"
+                                  ]
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "openPrice": {
+                                      "type": "number"
+                                    },
+                                    "closePrice": {
+                                      "type": "number"
+                                    },
+                                    "volume": {
+                                      "type": "number"
+                                    },
+                                    "openTime": {
+                                      "type": "number"
+                                    },
+                                    "closeTime": {
+                                      "type": "number"
+                                    },
+                                    "numberOfTrades": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "required": [
+                                    "openPrice",
+                                    "closePrice",
+                                    "volume",
+                                    "openTime",
+                                    "closeTime",
+                                    "numberOfTrades"
+                                  ]
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "openPrice": {
+                                      "type": "number"
+                                    },
+                                    "closePrice": {
+                                      "type": "number"
+                                    },
+                                    "volume": {
+                                      "type": "number"
+                                    },
+                                    "openTime": {
+                                      "type": "number"
+                                    },
+                                    "closeTime": {
+                                      "type": "number"
+                                    },
+                                    "numberOfTrades": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "required": [
+                                    "openPrice",
+                                    "closePrice",
+                                    "volume",
+                                    "openTime",
+                                    "closeTime",
+                                    "numberOfTrades"
+                                  ]
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "openPrice": {
+                                      "type": "number"
+                                    },
+                                    "closePrice": {
+                                      "type": "number"
+                                    },
+                                    "volume": {
+                                      "type": "number"
+                                    },
+                                    "openTime": {
+                                      "type": "number"
+                                    },
+                                    "closeTime": {
+                                      "type": "number"
+                                    },
+                                    "numberOfTrades": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "required": [
+                                    "openPrice",
+                                    "closePrice",
+                                    "volume",
+                                    "openTime",
+                                    "closeTime",
+                                    "numberOfTrades"
+                                  ]
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "openPrice": {
+                                      "type": "number"
+                                    },
+                                    "closePrice": {
+                                      "type": "number"
+                                    },
+                                    "volume": {
+                                      "type": "number"
+                                    },
+                                    "openTime": {
+                                      "type": "number"
+                                    },
+                                    "closeTime": {
+                                      "type": "number"
+                                    },
+                                    "numberOfTrades": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "required": [
+                                    "openPrice",
+                                    "closePrice",
+                                    "volume",
+                                    "openTime",
+                                    "closeTime",
+                                    "numberOfTrades"
+                                  ]
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "openPrice": {
+                                      "type": "number"
+                                    },
+                                    "closePrice": {
+                                      "type": "number"
+                                    },
+                                    "volume": {
+                                      "type": "number"
+                                    },
+                                    "openTime": {
+                                      "type": "number"
+                                    },
+                                    "closeTime": {
+                                      "type": "number"
+                                    },
+                                    "numberOfTrades": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "required": [
+                                    "openPrice",
+                                    "closePrice",
+                                    "volume",
+                                    "openTime",
+                                    "closeTime",
+                                    "numberOfTrades"
+                                  ]
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "openPrice": {
+                                      "type": "number"
+                                    },
+                                    "closePrice": {
+                                      "type": "number"
+                                    },
+                                    "volume": {
+                                      "type": "number"
+                                    },
+                                    "openTime": {
+                                      "type": "number"
+                                    },
+                                    "closeTime": {
+                                      "type": "number"
+                                    },
+                                    "numberOfTrades": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "required": [
+                                    "openPrice",
+                                    "closePrice",
+                                    "volume",
+                                    "openTime",
+                                    "closeTime",
+                                    "numberOfTrades"
+                                  ]
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "openPrice": {
+                                      "type": "number"
+                                    },
+                                    "closePrice": {
+                                      "type": "number"
+                                    },
+                                    "volume": {
+                                      "type": "number"
+                                    },
+                                    "openTime": {
+                                      "type": "number"
+                                    },
+                                    "closeTime": {
+                                      "type": "number"
+                                    },
+                                    "numberOfTrades": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "required": [
+                                    "openPrice",
+                                    "closePrice",
+                                    "volume",
+                                    "openTime",
+                                    "closeTime",
+                                    "numberOfTrades"
+                                  ]
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "openPrice": {
+                                      "type": "number"
+                                    },
+                                    "closePrice": {
+                                      "type": "number"
+                                    },
+                                    "volume": {
+                                      "type": "number"
+                                    },
+                                    "openTime": {
+                                      "type": "number"
+                                    },
+                                    "closeTime": {
+                                      "type": "number"
+                                    },
+                                    "numberOfTrades": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "required": [
+                                    "openPrice",
+                                    "closePrice",
+                                    "volume",
+                                    "openTime",
+                                    "closeTime",
+                                    "numberOfTrades"
+                                  ]
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "lowestOpenPrice",
+                            "highestOpenPrice",
+                            "lowestClosePrice",
+                            "highestClosePrice",
+                            "volumeSum",
+                            "numberOfAllTrades",
+                            "changeList"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "succeed",
+                        "statusText",
+                        "statusCode",
+                        "data"
+                      ],
+                      "title": "schema#0"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "succeed": {
+                          "type": "boolean"
+                        },
+                        "statusText": {
+                          "type": "string"
+                        },
+                        "statusCode": {
+                          "type": "number"
+                        },
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "lowestOpenPrice": {
+                              "type": "number"
+                            },
+                            "highestOpenPrice": {
+                              "type": "number"
+                            },
+                            "lowestClosePrice": {
+                              "type": "number"
+                            },
+                            "highestClosePrice": {
+                              "type": "number"
+                            },
+                            "volumeSum": {
+                              "type": "number"
+                            },
+                            "numberOfAllTrades": {
+                              "type": "number"
+                            },
+                            "changeList": {
+                              "type": "array",
+                              "prefixItems": [
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "openPrice": {
+                                      "type": "number"
+                                    },
+                                    "closePrice": {
+                                      "type": "number"
+                                    },
+                                    "volume": {
+                                      "type": "number"
+                                    },
+                                    "openTime": {
+                                      "type": "number"
+                                    },
+                                    "closeTime": {
+                                      "type": "number"
+                                    },
+                                    "numberOfTrades": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "required": [
+                                    "openPrice",
+                                    "closePrice",
+                                    "volume",
+                                    "openTime",
+                                    "closeTime",
+                                    "numberOfTrades"
+                                  ]
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "lowestOpenPrice",
+                            "highestOpenPrice",
+                            "lowestClosePrice",
+                            "highestClosePrice",
+                            "volumeSum",
+                            "numberOfAllTrades",
+                            "changeList"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "succeed",
+                        "statusText",
+                        "statusCode",
+                        "data"
+                      ],
+                      "title": "schema#1"
+                    }
+                  ]
+                },
+                "examples": {
+                  "example#0": {
+                    "value": {
+                      "succeed": true,
+                      "statusText": "OK",
+                      "statusCode": 200,
+                      "data": {
+                        "lowestOpenPrice": 103879.68,
+                        "highestOpenPrice": 103965.66,
+                        "lowestClosePrice": 103879.69,
+                        "highestClosePrice": 104004.02,
+                        "volumeSum": 21.95032,
+                        "numberOfAllTrades": 13.374880000000001,
+                        "changeList": [
+                          {
+                            "openPrice": 103879.68,
+                            "closePrice": 103879.69,
+                            "volume": 1.15822,
+                            "openTime": 1748867040000,
+                            "closeTime": 1748867099999,
+                            "numberOfTrades": 0.71887
+                          },
+                          {
+                            "openPrice": 103883.02,
+                            "closePrice": 103883.02,
+                            "volume": 0.559,
+                            "openTime": 1748866980000,
+                            "closeTime": 1748867039999,
+                            "numberOfTrades": 0.09953
+                          },
+                          {
+                            "openPrice": 103879.72,
+                            "closePrice": 103883.5,
+                            "volume": 0.94483,
+                            "openTime": 1748867100000,
+                            "closeTime": 1748867159999,
+                            "numberOfTrades": 0.94483
+                          },
+                          {
+                            "openPrice": 103888,
+                            "closePrice": 103888.93,
+                            "volume": 0.97613,
+                            "openTime": 1748866860000,
+                            "closeTime": 1748866919999,
+                            "numberOfTrades": 0.97153
+                          },
+                          {
+                            "openPrice": 103887.94,
+                            "closePrice": 103917,
+                            "volume": 2.07477,
+                            "openTime": 1748866920000,
+                            "closeTime": 1748866979999,
+                            "numberOfTrades": 0.53902
+                          },
+                          {
+                            "openPrice": 103918.83,
+                            "closePrice": 103920.82,
+                            "volume": 0.99486,
+                            "openTime": 1748866260000,
+                            "closeTime": 1748866319999,
+                            "numberOfTrades": 0.28926
+                          },
+                          {
+                            "openPrice": 103917.2,
+                            "closePrice": 103926.16,
+                            "volume": 1.42167,
+                            "openTime": 1748866620000,
+                            "closeTime": 1748866679999,
+                            "numberOfTrades": 1.10467
+                          },
+                          {
+                            "openPrice": 103915.83,
+                            "closePrice": 103926.17,
+                            "volume": 0.26847,
+                            "openTime": 1748866680000,
+                            "closeTime": 1748866739999,
+                            "numberOfTrades": 0.24492
+                          },
+                          {
+                            "openPrice": 103930.83,
+                            "closePrice": 103930.83,
+                            "volume": 1.21376,
+                            "openTime": 1748866560000,
+                            "closeTime": 1748866619999,
+                            "numberOfTrades": 0.12954
+                          },
+                          {
+                            "openPrice": 103943.1,
+                            "closePrice": 103943.1,
+                            "volume": 0.95466,
+                            "openTime": 1748866500000,
+                            "closeTime": 1748866559999,
+                            "numberOfTrades": 0.01355
+                          },
+                          {
+                            "openPrice": 103917.94,
+                            "closePrice": 103944.7,
+                            "volume": 1.91064,
+                            "openTime": 1748866320000,
+                            "closeTime": 1748866379999,
+                            "numberOfTrades": 1.59649
+                          },
+                          {
+                            "openPrice": 103926.17,
+                            "closePrice": 103952.56,
+                            "volume": 1.26801,
+                            "openTime": 1748866740000,
+                            "closeTime": 1748866799999,
+                            "numberOfTrades": 1.22692
+                          },
+                          {
+                            "openPrice": 103957.72,
+                            "closePrice": 103957.72,
+                            "volume": 0.1008,
+                            "openTime": 1748866440000,
+                            "closeTime": 1748866499999,
+                            "numberOfTrades": 0.08884
+                          },
+                          {
+                            "openPrice": 103934.89,
+                            "closePrice": 103961.14,
+                            "volume": 2.80652,
+                            "openTime": 1748866380000,
+                            "closeTime": 1748866439999,
+                            "numberOfTrades": 2.69802
+                          },
+                          {
+                            "openPrice": 103952.47,
+                            "closePrice": 103962.52,
+                            "volume": 2.70059,
+                            "openTime": 1748866800000,
+                            "closeTime": 1748866859999,
+                            "numberOfTrades": 1.55214
+                          },
+                          {
+                            "openPrice": 103964.02,
+                            "closePrice": 103964.02,
+                            "volume": 0.95045,
+                            "openTime": 1748866200000,
+                            "closeTime": 1748866259999,
+                            "numberOfTrades": 0.68787
+                          },
+                          {
+                            "openPrice": 103965.66,
+                            "closePrice": 104004.02,
+                            "volume": 1.64694,
+                            "openTime": 1748866140000,
+                            "closeTime": 1748866199999,
+                            "numberOfTrades": 0.46888
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "example#1": {
+                    "value": {
+                      "succeed": true,
+                      "statusText": "OK",
+                      "statusCode": 200,
+                      "data": {
+                        "lowestOpenPrice": 100000,
+                        "highestOpenPrice": 100000,
+                        "lowestClosePrice": 100100,
+                        "highestClosePrice": 100100,
+                        "volumeSum": 2.16946,
+                        "numberOfAllTrades": 0.00059,
+                        "changeList": [
+                          {
+                            "openPrice": 100000,
+                            "closePrice": 100100,
+                            "volume": 2.16946,
+                            "openTime": 1748863260000,
+                            "closeTime": 1748863319999,
+                            "numberOfTrades": 0.00059
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "x-powered-by": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "Express"
+                  }
+                }
+              },
+              "content-type": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "application/json; charset=utf-8"
+                  }
+                }
+              },
+              "etag": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "W/\"a39-Dl2KpZcvBQdWEQWCVK7/EaAkxTQ\""
+                  }
+                }
+              },
+              "date": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "Mon, 02 Jun 2025 12:25:25 GMT"
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "response when api returns 409 statusCode",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "succeed": {
+                      "type": "boolean"
+                    },
+                    "statusText": {
+                      "type": "string"
+                    },
+                    "statusCode": {
+                      "type": "number"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {},
+                      "required": []
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        },
+                        "list": {
+                          "type": "array",
+                          "prefixItems": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "type": "string"
+                                },
+                                "message": {
+                                  "type": "string"
+                                },
+                                "path": {
+                                  "type": "string"
+                                },
+                                "succeed": {
+                                  "type": "boolean"
+                                },
+                                "data": {
+                                  "type": "object",
+                                  "properties": {},
+                                  "required": []
+                                },
+                                "parent": {
+                                  "type": "null"
+                                },
+                                "causeList": {
+                                  "type": "array",
+                                  "prefixItems": [
+                                    {
+                                      "type": "string"
+                                    },
+                                    {
+                                      "type": "string"
+                                    },
+                                    {
+                                      "type": "string"
+                                    }
+                                  ]
+                                },
+                                "executionId": {
+                                  "type": "string"
+                                },
+                                "id": {
+                                  "type": "string"
+                                },
+                                "stack": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "name",
+                                "message",
+                                "path",
+                                "succeed",
+                                "data",
+                                "parent",
+                                "causeList",
+                                "executionId",
+                                "id",
+                                "stack"
+                              ]
+                            },
+                            {
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "type": "string"
+                                },
+                                "message": {
+                                  "type": "string"
+                                },
+                                "path": {
+                                  "type": "string"
+                                },
+                                "succeed": {
+                                  "type": "boolean"
+                                },
+                                "data": {
+                                  "type": "object",
+                                  "properties": {
+                                    "symbol": {
+                                      "type": "string"
+                                    },
+                                    "timeEnd": {
+                                      "type": "number"
+                                    },
+                                    "timeStart": {
+                                      "type": "number"
+                                    },
+                                    "interval": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "symbol",
+                                    "timeEnd",
+                                    "timeStart",
+                                    "interval"
+                                  ]
+                                },
+                                "parent": {
+                                  "type": "null"
+                                },
+                                "causeList": {
+                                  "type": "array",
+                                  "prefixItems": [
+                                    {
+                                      "type": "string"
+                                    },
+                                    {
+                                      "type": "string"
+                                    }
+                                  ]
+                                },
+                                "executionId": {
+                                  "type": "string"
+                                },
+                                "id": {
+                                  "type": "string"
+                                },
+                                "stack": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "name",
+                                "message",
+                                "path",
+                                "succeed",
+                                "data",
+                                "parent",
+                                "causeList",
+                                "executionId",
+                                "id",
+                                "stack"
+                              ]
+                            },
+                            {
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "type": "string"
+                                },
+                                "message": {
+                                  "type": "string"
+                                },
+                                "path": {
+                                  "type": "string"
+                                },
+                                "succeed": {
+                                  "type": "boolean"
+                                },
+                                "data": {
+                                  "type": "object",
+                                  "properties": {},
+                                  "required": []
+                                },
+                                "parent": {
+                                  "type": "null"
+                                },
+                                "causeList": {
+                                  "type": "array",
+                                  "prefixItems": [
+                                    {
+                                      "type": "string"
+                                    }
+                                  ]
+                                },
+                                "executionId": {
+                                  "type": "string"
+                                },
+                                "id": {
+                                  "type": "string"
+                                },
+                                "stack": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "name",
+                                "message",
+                                "path",
+                                "succeed",
+                                "data",
+                                "parent",
+                                "causeList",
+                                "executionId",
+                                "id",
+                                "stack"
+                              ]
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "message",
+                        "list"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "succeed",
+                    "statusText",
+                    "statusCode",
+                    "data",
+                    "error"
+                  ]
+                },
+                "examples": {
+                  "example#0": {
+                    "value": {
+                      "succeed": false,
+                      "statusText": "Conflict",
+                      "statusCode": 409,
+                      "data": {},
+                      "error": {
+                        "name": "ROUTE_CONFLICT_ERROR",
+                        "message": "route conflict",
+                        "list": [
+                          {
+                            "name": "ROUTE_CONFLICT_ERROR",
+                            "message": "route conflict",
+                            "path": "/src/route/market-data/calculate.post.ts:66:13",
+                            "succeed": false,
+                            "data": {},
+                            "parent": null,
+                            "causeList": [
+                              "ROUTE_CONFLICT_ERROR",
+                              "HANDLER_NO_DATA_ERROR",
+                              "INTEGRATION_BINANCE_NO_KLINE_DATA_ERROR"
+                            ],
+                            "executionId": "bfffe8e7-6c7e-492c-833c-3fb8df7db674",
+                            "id": "0c14ac71-6229-4877-918a-d02df3ef94e1",
+                            "stack": "ROUTE_CONFLICT_ERROR: route conflict\n    at handler (/app/src/route/market-data/calculate.post.ts:66:13)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at route.handler (/app/src/shared/structure/route.structure.ts:494:7)"
+                          },
+                          {
+                            "name": "HANDLER_NO_DATA_ERROR",
+                            "message": "handler acquiring data failed",
+                            "path": "/src/handler/market-data/calculate.handler.ts:67:14",
+                            "succeed": false,
+                            "data": {
+                              "symbol": "BTCUSDT",
+                              "timeEnd": 1748867125690,
+                              "timeStart": 1748866125690,
+                              "interval": "m"
+                            },
+                            "parent": null,
+                            "causeList": [
+                              "HANDLER_NO_DATA_ERROR",
+                              "INTEGRATION_BINANCE_NO_KLINE_DATA_ERROR"
+                            ],
+                            "executionId": "bfffe8e7-6c7e-492c-833c-3fb8df7db674",
+                            "id": "746ef7db-f172-4e47-895c-560f7d45d14a",
+                            "stack": "HANDLER_NO_DATA_ERROR: handler acquiring data failed\n    at /app/src/handler/market-data/calculate.handler.ts:67:14\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at Object.execute (/app/src/shared/structure/handler.structure.ts:90:26)"
+                          },
+                          {
+                            "name": "INTEGRATION_BINANCE_NO_KLINE_DATA_ERROR",
+                            "message": "integration binance no kline data",
+                            "path": "/src/integration/binance.integration.ts:52:14",
+                            "succeed": false,
+                            "data": {},
+                            "parent": null,
+                            "causeList": [
+                              "INTEGRATION_BINANCE_NO_KLINE_DATA_ERROR"
+                            ],
+                            "executionId": "bfffe8e7-6c7e-492c-833c-3fb8df7db674",
+                            "id": "5739f83c-7d87-4f7f-9503-a267d7b1ba2a",
+                            "stack": "INTEGRATION_BINANCE_NO_KLINE_DATA_ERROR: integration binance no kline data\n    at Object.getHistoricalData (/app/src/integration/binance.integration.ts:52:14)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "x-powered-by": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "Express"
+                  }
+                }
+              },
+              "content-type": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "application/json; charset=utf-8"
+                  }
+                }
+              },
+              "etag": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "W/\"817-xuD9mBU7hbfMsDnIzvRTAhH9rQg\""
+                  }
+                }
+              },
+              "date": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "Mon, 02 Jun 2025 12:25:25 GMT"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": []
+    },
+    "/localhost/internal/health-check/": {
+      "get": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {},
+                "required": []
+              },
+              "examples": {
+                "example#0": {
+                  "value": {}
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "response when api returns 200 statusCode",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "succeed": {
+                          "type": "boolean"
+                        },
+                        "statusText": {
+                          "type": "string"
+                        },
+                        "statusCode": {
+                          "type": "number"
+                        },
+                        "data": {
+                          "type": "object",
+                          "properties": {},
+                          "required": []
+                        }
+                      },
+                      "required": [
+                        "succeed",
+                        "statusText",
+                        "statusCode",
+                        "data"
+                      ],
+                      "title": "schema#0"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "succeed": {
+                          "type": "boolean"
+                        },
+                        "statusText": {
+                          "type": "string"
+                        },
+                        "statusCode": {
+                          "type": "number"
+                        },
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "databaseConnectionStatus": {
+                              "type": "object",
+                              "properties": {
+                                "REDIS": {
+                                  "type": "boolean"
+                                },
+                                "DYNAMO": {
+                                  "type": "boolean"
+                                },
+                                "MONGO": {
+                                  "type": "boolean"
+                                },
+                                "MYSQL": {
+                                  "type": "boolean"
+                                },
+                                "POSTGRES": {
+                                  "type": "boolean"
+                                }
+                              },
+                              "required": [
+                                "REDIS",
+                                "DYNAMO",
+                                "MONGO",
+                                "MYSQL",
+                                "POSTGRES"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "databaseConnectionStatus"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "succeed",
+                        "statusText",
+                        "statusCode",
+                        "data"
+                      ],
+                      "title": "schema#1"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "succeed": {
+                          "type": "boolean"
+                        },
+                        "statusText": {
+                          "type": "string"
+                        },
+                        "statusCode": {
+                          "type": "number"
+                        },
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "networkStatus": {
+                              "type": "boolean"
+                            }
+                          },
+                          "required": [
+                            "networkStatus"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "succeed",
+                        "statusText",
+                        "statusCode",
+                        "data"
+                      ],
+                      "title": "schema#2"
+                    }
+                  ]
+                },
+                "examples": {
+                  "example#0": {
+                    "value": {
+                      "succeed": true,
+                      "statusText": "OK",
+                      "statusCode": 200,
+                      "data": {}
+                    }
+                  },
+                  "example#1": {
+                    "value": {
+                      "succeed": true,
+                      "statusText": "OK",
+                      "statusCode": 200,
+                      "data": {
+                        "databaseConnectionStatus": {
+                          "REDIS": true,
+                          "DYNAMO": true,
+                          "MONGO": true,
+                          "MYSQL": true,
+                          "POSTGRES": true
+                        }
+                      }
+                    }
+                  },
+                  "example#2": {
+                    "value": {
+                      "succeed": true,
+                      "statusText": "OK",
+                      "statusCode": 200,
+                      "data": {
+                        "networkStatus": true
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "x-powered-by": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "Express"
+                  }
+                }
+              },
+              "health_check_time_start": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "2025-06-02T12:25:26.707+00:00"
+                  }
+                }
+              },
+              "health_check_time_end": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "2025-06-02T12:25:26.707+00:00"
+                  }
+                }
+              },
+              "content-type": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "application/json; charset=utf-8"
+                  }
+                }
+              },
+              "etag": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "W/\"3d-vsl7QTktD0xoBTEHuXlNomAtvWE\""
+                  }
+                }
+              },
+              "date": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "Mon, 02 Jun 2025 12:25:26 GMT"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "header",
+            "name": "check_handler",
+            "schema": {
+              "type": "string"
+            },
+            "example": "true"
+          },
+          {
+            "in": "header",
+            "name": "check_database",
+            "schema": {
+              "type": "string"
+            },
+            "example": "true"
+          },
+          {
+            "in": "header",
+            "name": "check_network",
+            "schema": {
+              "type": "string"
+            },
+            "example": "true"
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/vision/testnet.binance/api/": {
+      "get": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {},
+                "required": []
+              },
+              "examples": {
+                "example#0": {
+                  "value": {}
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "response when api returns 200 statusCode",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "array",
+                      "prefixItems": [
+                        {
+                          "type": "array",
+                          "prefixItems": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "array",
+                          "prefixItems": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "array",
+                          "prefixItems": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "array",
+                          "prefixItems": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "array",
+                          "prefixItems": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "array",
+                          "prefixItems": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "array",
+                          "prefixItems": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "array",
+                          "prefixItems": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "array",
+                          "prefixItems": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "array",
+                          "prefixItems": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "array",
+                          "prefixItems": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "array",
+                          "prefixItems": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "array",
+                          "prefixItems": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "array",
+                          "prefixItems": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "array",
+                          "prefixItems": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "array",
+                          "prefixItems": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "array",
+                          "prefixItems": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        }
+                      ],
+                      "title": "schema#0"
+                    },
+                    {
+                      "type": "array",
+                      "prefixItems": [
+                        {
+                          "type": "array",
+                          "prefixItems": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        }
+                      ],
+                      "title": "schema#1"
+                    },
+                    {
+                      "type": "array",
+                      "prefixItems": [],
+                      "title": "schema#2"
+                    }
+                  ]
+                },
+                "examples": {
+                  "example#0": {
+                    "value": [
+                      [
+                        1748866140000,
+                        "103965.66000000",
+                        "104004.02000000",
+                        "103954.54000000",
+                        "103964.45000000",
+                        "1.64694000",
+                        1748866199999,
+                        "171251.52691820",
+                        67,
+                        "0.46888000",
+                        "48753.83610770",
+                        "0"
+                      ],
+                      [
+                        1748866200000,
+                        "103964.02000000",
+                        "103964.02000000",
+                        "103918.79000000",
+                        "103919.41000000",
+                        "0.95045000",
+                        1748866259999,
+                        "98779.62894170",
+                        53,
+                        "0.68787000",
+                        "71482.80946490",
+                        "0"
+                      ],
+                      [
+                        1748866260000,
+                        "103918.83000000",
+                        "103920.82000000",
+                        "103918.02000000",
+                        "103918.25000000",
+                        "0.99486000",
+                        1748866319999,
+                        "103385.45151970",
+                        40,
+                        "0.28926000",
+                        "30059.85549860",
+                        "0"
+                      ],
+                      [
+                        1748866320000,
+                        "103917.94000000",
+                        "103944.70000000",
+                        "103917.76000000",
+                        "103940.96000000",
+                        "1.91064000",
+                        1748866379999,
+                        "198563.22231130",
+                        62,
+                        "1.59649000",
+                        "165909.45335740",
+                        "0"
+                      ],
+                      [
+                        1748866380000,
+                        "103934.89000000",
+                        "103961.14000000",
+                        "103931.89000000",
+                        "103957.68000000",
+                        "2.80652000",
+                        1748866439999,
+                        "291755.69305240",
+                        90,
+                        "2.69802000",
+                        "280478.14561720",
+                        "0"
+                      ],
+                      [
+                        1748866440000,
+                        "103957.72000000",
+                        "103957.72000000",
+                        "103952.18000000",
+                        "103955.02000000",
+                        "0.10080000",
+                        1748866499999,
+                        "10478.69375720",
+                        13,
+                        "0.08884000",
+                        "9235.36795440",
+                        "0"
+                      ],
+                      [
+                        1748866500000,
+                        "103943.10000000",
+                        "103943.10000000",
+                        "103930.82000000",
+                        "103930.82000000",
+                        "0.95466000",
+                        1748866559999,
+                        "99221.62058230",
+                        28,
+                        "0.01355000",
+                        "1408.40666650",
+                        "0"
+                      ],
+                      [
+                        1748866560000,
+                        "103930.83000000",
+                        "103930.83000000",
+                        "103915.73000000",
+                        "103915.73000000",
+                        "1.21376000",
+                        1748866619999,
+                        "126134.09344640",
+                        41,
+                        "0.12954000",
+                        "13461.91082030",
+                        "0"
+                      ],
+                      [
+                        1748866620000,
+                        "103917.20000000",
+                        "103926.16000000",
+                        "103908.09000000",
+                        "103915.76000000",
+                        "1.42167000",
+                        1748866679999,
+                        "147740.53456500",
+                        47,
+                        "1.10467000",
+                        "114796.44860490",
+                        "0"
+                      ],
+                      [
+                        1748866680000,
+                        "103915.83000000",
+                        "103926.17000000",
+                        "103915.76000000",
+                        "103926.17000000",
+                        "0.26847000",
+                        1748866739999,
+                        "27899.77577080",
+                        20,
+                        "0.24492000",
+                        "25452.55962280",
+                        "0"
+                      ],
+                      [
+                        1748866740000,
+                        "103926.17000000",
+                        "103952.56000000",
+                        "103926.17000000",
+                        "103952.46000000",
+                        "1.26801000",
+                        1748866799999,
+                        "131793.52464420",
+                        48,
+                        "1.22692000",
+                        "127522.11806280",
+                        "0"
+                      ],
+                      [
+                        1748866800000,
+                        "103952.47000000",
+                        "103962.52000000",
+                        "103888.00000000",
+                        "103888.01000000",
+                        "2.70059000",
+                        1748866859999,
+                        "280725.73850730",
+                        87,
+                        "1.55214000",
+                        "161348.42698990",
+                        "0"
+                      ],
+                      [
+                        1748866860000,
+                        "103888.00000000",
+                        "103888.93000000",
+                        "103887.94000000",
+                        "103888.93000000",
+                        "0.97613000",
+                        1748866919999,
+                        "101408.34770660",
+                        45,
+                        "0.97153000",
+                        "100930.46282500",
+                        "0"
+                      ],
+                      [
+                        1748866920000,
+                        "103887.94000000",
+                        "103917.00000000",
+                        "103883.01000000",
+                        "103883.02000000",
+                        "2.07477000",
+                        1748866979999,
+                        "215551.61931510",
+                        74,
+                        "0.53902000",
+                        "55997.04176980",
+                        "0"
+                      ],
+                      [
+                        1748866980000,
+                        "103883.02000000",
+                        "103883.02000000",
+                        "103879.64000000",
+                        "103879.64000000",
+                        "0.55900000",
+                        1748867039999,
+                        "58069.88046880",
+                        24,
+                        "0.09953000",
+                        "10339.34676860",
+                        "0"
+                      ],
+                      [
+                        1748867040000,
+                        "103879.68000000",
+                        "103879.69000000",
+                        "103862.50000000",
+                        "103879.11000000",
+                        "1.15822000",
+                        1748867099999,
+                        "120308.36926720",
+                        45,
+                        "0.71887000",
+                        "74671.33046110",
+                        "0"
+                      ],
+                      [
+                        1748867100000,
+                        "103879.72000000",
+                        "103883.50000000",
+                        "103879.72000000",
+                        "103883.50000000",
+                        "0.94483000",
+                        1748867159999,
+                        "98149.84330330",
+                        34,
+                        "0.94483000",
+                        "98149.84330330",
+                        "0"
+                      ]
+                    ]
+                  },
+                  "example#1": {
+                    "value": [
+                      [
+                        1748863260000,
+                        "100000.0000000",
+                        "100100.0000000",
+                        "104261.74000000",
+                        "104261.74000000",
+                        "2.16946000",
+                        1748863319999,
+                        "226224.74800220",
+                        59,
+                        "0.00059000",
+                        "61.52235180",
+                        "0"
+                      ]
+                    ]
+                  },
+                  "example#2": {
+                    "value": []
+                  }
+                }
+              }
+            },
+            "headers": {
+              "content-type": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "title": "schema#0"
+                    },
+                    {
+                      "type": "string",
+                      "title": "schema#1"
+                    }
+                  ]
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "application/json;charset=UTF-8"
+                  },
+                  "example#1": {
+                    "value": "application/json"
+                  }
+                }
+              },
+              "date": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "Mon, 02 Jun 2025 12:25:25 GMT"
+                  }
+                }
+              },
+              "access-control-allow-methods": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "GET, HEAD, OPTIONS"
+                  }
+                }
+              },
+              "server": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "nginx"
+                  }
+                }
+              },
+              "x-mbx-uuid": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "83c5ce22-a1d8-4f1d-808b-625371bdacdb"
+                  }
+                }
+              },
+              "x-mbx-used-weight": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "4"
+                  }
+                }
+              },
+              "x-mbx-used-weight-1m": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "4"
+                  }
+                }
+              },
+              "strict-transport-security": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "max-age=31536000; includeSubdomains"
+                  }
+                }
+              },
+              "x-frame-options": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "SAMEORIGIN"
+                  }
+                }
+              },
+              "x-xss-protection": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "1; mode=block"
+                  }
+                }
+              },
+              "x-content-type-options": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "nosniff"
+                  }
+                }
+              },
+              "content-security-policy": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "default-src 'self'"
+                  }
+                }
+              },
+              "x-content-security-policy": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "default-src 'self'"
+                  }
+                }
+              },
+              "x-webkit-csp": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "default-src 'self'"
+                  }
+                }
+              },
+              "cache-control": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "no-cache, no-store, must-revalidate"
+                  }
+                }
+              },
+              "pragma": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "no-cache"
+                  }
+                }
+              },
+              "expires": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "0"
+                  }
+                }
+              },
+              "access-control-allow-origin": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "*"
+                  }
+                }
+              },
+              "x-cache": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "Miss from cloudfront"
+                  }
+                }
+              },
+              "via": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "1.1 eff30373f0d8693ef685afd11931510e.cloudfront.net (CloudFront)"
+                  }
+                }
+              },
+              "x-amz-cf-pop": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "WAW51-P4"
+                  }
+                }
+              },
+              "x-amz-cf-id": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {
+                  "example#0": {
+                    "value": "_nrry4l8JQzLrxsKH1GIDqqdicbuGw0sRFXveVrAyCV_AeukyzyTdw=="
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": []
+    }
+  }
+}
