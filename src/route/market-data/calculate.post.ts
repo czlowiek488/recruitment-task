@@ -43,17 +43,32 @@ export const calculateMarketDataRoute = createRoute(
           {},
         )
       }
-      return sendResponse(
-        StatusCodes.INTERNAL_SERVER_ERROR,
-        new Result(
-          false,
-          'route did not handled an error',
-          {},
-          'ROUTE_UNHANDLED_ERROR',
-          result,
-        ),
-        {},
-      )
+      switch (result.name) {
+        case 'HANDLER_NO_DATA_ERROR':
+          return sendResponse(
+            StatusCodes.CONFLICT,
+            new Result(
+              false,
+              'route conflict',
+              {},
+              'ROUTE_CONFLICT_ERROR',
+              result,
+            ),
+            {},
+          )
+        default:
+          return sendResponse(
+            StatusCodes.INTERNAL_SERVER_ERROR,
+            new Result(
+              false,
+              'route did not handled an error',
+              {},
+              'ROUTE_UNHANDLED_ERROR',
+              result,
+            ),
+            {},
+          )
+      }
     },
   }),
 )

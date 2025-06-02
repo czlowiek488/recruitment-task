@@ -60,7 +60,7 @@ export type ErrorMessage = Lowercase<
   | `integration binance no kline data`
   | `timer execution ${'check function failed' | 'timeout'}`
   | `endpoint ${'mock execution' | 'request'} failed`
-  | `handler ${'async local store does not exists' | `execution failed` | 'execution error caught' | 'invalid counter amount' | `${EndpointName | 'create counter'} failed`}`
+  | `handler ${'acquiring data failed' | 'async local store does not exists' | `execution failed` | 'execution error caught' | 'invalid counter amount' | `${EndpointName | 'create counter'} failed`}`
   | `route ${
       | 'not found'
       | `request ${'validation failed' | 'failed with unexpected error' | 'error handler failed'}`}`
@@ -68,6 +68,7 @@ export type ErrorMessage = Lowercase<
   | `test ${'execution' | 'assuring config'} failed`
   // route
   | 'route did not handled an error'
+  | 'route conflict'
   // config
   | 'config validation failed'
   // server
@@ -96,11 +97,12 @@ export type ErrorName = Uppercase<`${
     // endpoint
     | `ENDPOINT_${'MOCK_EXECUTION' | 'REQUEST'}`
     // handler
-    | `HANDLER_${`EXECUTION${'' | '_CAUGHT'}` | 'ASYNC_LOCAL_STORE_DOES_NOT_EXISTS' | 'GET_COUNTER' | 'PERFORMANCE_TEST' | 'INVALID_COUNTER' | 'CREATE_COUNTER'}`
+    | `HANDLER_${`EXECUTION${'' | '_CAUGHT'}` | 'ASYNC_LOCAL_STORE_DOES_NOT_EXISTS' | 'GET_COUNTER' | 'PERFORMANCE_TEST' | 'INVALID_COUNTER' | 'CREATE_COUNTER' | 'NO_DATA'}`
     // route
     | `ROUTE_REQUEST_${'VALIDATION' | 'UNEXPECTED'}`
     | 'ROUTE_ENDPOINT_NOT_FOUND'
     | 'ROUTE_UNHANDLED'
+    | 'ROUTE_CONFLICT'
     // app
     | `APP_${'LOADING' | 'RELOADING' | 'STARTING' | 'CLOSING'}`
     // server

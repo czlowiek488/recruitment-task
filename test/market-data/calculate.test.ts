@@ -34,7 +34,9 @@ it('market data - get historical data mocks - with data', async () => {
 
   expect(result.calculateMarketDataRouteTestResult.data).toStrictEqual({
     responseBody: {
-      data: {},
+      data: {
+        priceDifferenceChange: expect.any(Number),
+      },
       statusCode: StatusCodes.OK,
       statusText: ReasonPhrases.OK,
       succeed: true,
@@ -46,9 +48,7 @@ it('market data - get historical data mocks - with data', async () => {
   expect(test.mocks.binanceKlinesEndpoint.get().requestList).toStrictEqual([
     {
       request: {
-        body: {
-          priceDifferenceChange: expect.any(Number),
-        },
+        body: {},
         headers: {
           connection: 'close',
           accept: 'application/json, text/plain, */*',
@@ -65,7 +65,22 @@ it('market data - get historical data mocks - with data', async () => {
         },
       },
       response: {
-        body: [],
+        body: [
+          [
+            expect.any(Number),
+            expect.any(String),
+            expect.any(String),
+            expect.any(String),
+            expect.any(String),
+            expect.any(String),
+            expect.any(Number),
+            expect.any(String),
+            expect.any(Number),
+            expect.any(String),
+            expect.any(String),
+            expect.any(String),
+          ],
+        ],
         headers: undefined,
         statusCode: StatusCodes.OK,
       },
@@ -83,20 +98,71 @@ it('market data - get historical data mocks - no data', async () => {
   expect(result.calculateMarketDataRouteTestResult.data).toStrictEqual({
     responseBody: {
       data: {},
-      statusCode: StatusCodes.OK,
-      statusText: ReasonPhrases.OK,
-      succeed: true,
+      succeed: false,
+      statusCode: StatusCodes.CONFLICT,
+      statusText: ReasonPhrases.CONFLICT,
+      error: {
+        list: [
+          {
+            causeList: [
+              'ROUTE_CONFLICT_ERROR',
+              'HANDLER_NO_DATA_ERROR',
+              'INTEGRATION_BINANCE_NO_KLINE_DATA_ERROR',
+            ],
+            data: {},
+            executionId: expect.any(String),
+            id: expect.any(String),
+            message: 'route conflict',
+            name: 'ROUTE_CONFLICT_ERROR',
+            parent: null,
+            path: expect.any(String),
+            stack: expect.any(String),
+            succeed: false,
+          },
+          {
+            causeList: [
+              'HANDLER_NO_DATA_ERROR',
+              'INTEGRATION_BINANCE_NO_KLINE_DATA_ERROR',
+            ],
+            data: {
+              symbol: expect.any(String),
+              timeEnd: expect.any(Number),
+              timeStart: expect.any(Number),
+            },
+            executionId: expect.any(String),
+            id: expect.any(String),
+            message: 'handler acquiring data failed',
+            name: 'HANDLER_NO_DATA_ERROR',
+            parent: null,
+            path: expect.any(String),
+            stack: expect.any(String),
+            succeed: false,
+          },
+          {
+            causeList: ['INTEGRATION_BINANCE_NO_KLINE_DATA_ERROR'],
+            data: {},
+            executionId: expect.any(String),
+            id: expect.any(String),
+            message: 'integration binance no kline data',
+            name: 'INTEGRATION_BINANCE_NO_KLINE_DATA_ERROR',
+            parent: null,
+            path: expect.any(String),
+            stack: expect.any(String),
+            succeed: false,
+          },
+        ],
+        message: 'route conflict',
+        name: 'ROUTE_CONFLICT_ERROR',
+      },
     },
     responseHeaders: axiosCommonHeadersExpectation,
-    statusCode: StatusCodes.OK,
+    statusCode: StatusCodes.CONFLICT,
   })
 
   expect(test.mocks.binanceKlinesEndpoint.get().requestList).toStrictEqual([
     {
       request: {
-        body: {
-          priceDifferenceChange: expect.any(Number),
-        },
+        body: {},
         headers: {
           connection: 'close',
           accept: 'application/json, text/plain, */*',
