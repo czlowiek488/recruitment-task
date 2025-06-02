@@ -49,6 +49,8 @@ import { internalHealthCheckHandler } from './handler/internal/health-check.hand
 import { calculateMarketDataRoute } from './route/market-data/calculate.post'
 import { marketDataCalculateHandler } from './handler/market-data/calculate.handler'
 import { binanceKlinesEndpoint } from './integration/binance.integration.endpoint'
+import { binanceIntegration } from './integration/binance.integration'
+import type { BinanceIntegration } from './integration/binance.integration'
 
 export const dbManager = createDbManager({
   REDIS: redisDb,
@@ -100,6 +102,7 @@ export type Dependencies = {
 
   // integration list
   baseIntegration: BaseIntegration
+  binanceIntegration: BinanceIntegration
 
   // route list
   internalTest1Route: ReturnType<typeof internalTest1Route>
@@ -190,6 +193,7 @@ export const loadAppContainer = <TDependencies extends Dependencies>(
 
     // integration list
     baseIntegration: asProxied(baseIntegration, [loggerProxy()]),
+    binanceIntegration: asProxied(binanceIntegration, [loggerProxy()]),
 
     // handler list
     internalTest1Handler: asProxied(internalTest1Handler, [

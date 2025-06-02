@@ -57,6 +57,7 @@ export type ErrorMessage = Lowercase<
       | `dynamo table ${'config missing' | `${'creating' | 'describing'} failed`}`
       | `${DatabaseName | ''} ${`${DbOperation} failed` | 'already connected' | `item not found` | 'not connected' | 'emptying disallowed'}`}`
   | `integration ${'could not send request because of network failure'}`
+  | `integration binance no kline data`
   | `timer execution ${'check function failed' | 'timeout'}`
   | `endpoint ${'mock execution' | 'request'} failed`
   | `handler ${'async local store does not exists' | `execution failed` | 'execution error caught' | 'invalid counter amount' | `${EndpointName | 'create counter'} failed`}`
@@ -87,6 +88,7 @@ export type ErrorName = Uppercase<`${
     | `TEST_${'ASSURING_CONFIG' | 'EXECUTION'}`
     //integration
     | `INTEGRATION_${'INVALID_STATUS_CODE' | 'CONNECTION'}`
+    | `INTEGRATION_BINANCE_NO_KLINE_DATA`
     // timer
     | `TIMER_${'CHECK_FUNCTION' | 'TIMEOUT'}`
     // db

@@ -1,25 +1,29 @@
 import type { Dependencies } from '../app'
+import { logger } from '../shared/lib/logger.lib'
 import { Result } from '../shared/lib/result.lib'
 import type { FunctionResult } from '../shared/lib/result.lib'
 
-export type BaseIntegration = {
+export type BinanceIntegration = {
   getHistoricalData: (payload: {
     symbol: string
     startTime: number
     endTime: number
-  }) => FunctionResult<Promise<{}>, 'INTEGRATION_CONNECTION_ERROR'>
+  }) => FunctionResult<
+    Promise<{ openPrice: number; closePrice: number }>,
+    'INTEGRATION_CONNECTION_ERROR' | 'INTEGRATION_BINANCE_NO_KLINE_DATA_ERROR'
+  >
 }
 
-export const baseIntegration = (
+export const binanceIntegration = (
   dependencies: Dependencies,
-): BaseIntegration => ({
+): BinanceIntegration => ({
   getHistoricalData: async (payload) => {
     const result = await dependencies.binanceKlinesEndpoint.request({
       body: undefined,
       headers: undefined,
       params: undefined,
       query: {
-        interval: '1d',
+        interval: '1m',
         symbol: payload.symbol,
         startTime: String(payload.startTime),
         endTime: String(payload.endTime),
@@ -33,6 +37,18 @@ export const baseIntegration = (
         'INTEGRATION_CONNECTION_ERROR',
       )
     }
-    return new Result(true, 'integration request succeed', {})
+    if (result.body[0] === undefined) {
+      return new Result(
+        false,
+        'integration binance no kline data',
+        {},
+        'INTEGRATION_BINANCE_NO_KLINE_DATA_ERROR',
+      )
+    }
+    logger.debug('here', result.body[0])
+    return new Result(true, 'integration request succeed', {
+      openPrice: Number(result.body[0][1]),
+      closePrice: Number(result.body[0][2]),
+    })
   },
 })

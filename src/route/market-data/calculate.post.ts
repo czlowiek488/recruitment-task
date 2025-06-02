@@ -5,7 +5,9 @@ import { Result } from '../../shared/lib/result.lib'
 import { RouteName } from '../../shared/enum/route-name.enum'
 
 export const calculateMarketDataRoute = createRoute(
-  zod.object({}),
+  zod.object({
+    priceDifferenceChange: zod.number(),
+  }),
   zod.object({}),
 )(
   () => ({
@@ -27,11 +29,17 @@ export const calculateMarketDataRoute = createRoute(
       after: [dependencies.errorHandlerMiddleware],
     },
     handler: async (req, res, sendResponse) => {
-      const result = await dependencies.marketDataCalculateHandler.execute({})
+      const result = await dependencies.marketDataCalculateHandler.execute({
+        symbol: req.body.symbol,
+        timeEnd: req.body.timeEnd,
+        timeStart: req.body.timeStart,
+      })
       if (result.succeed === true) {
         return sendResponse(
           StatusCodes.OK,
-          new Result(true, 'route succeed', {}),
+          new Result(true, 'route succeed', {
+            priceDifferenceChange: result.data.priceDifferenceChange,
+          }),
           {},
         )
       }

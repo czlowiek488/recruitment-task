@@ -22,7 +22,7 @@ export const binanceKlinesEndpoint = createEndpoint((dependencies) => ({
       undefined,
       {
         symbol: string
-        interval: `${number}${'s' | 'w' | 'm' | 'd' | 'M'}`
+        interval: `${number}${'s' | 'w' | 'm' | 'h' | 'd' | 'M'}`
         startTime: string
         endTime: string
       },
